@@ -1,4 +1,29 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://jurogrammer.github.io/blog/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
-theme = "ananke"
+theme = 'PaperMod'
+
+[menu]
+
+[[menu.main]]
+identifier = "Languages"
+name = "Languages"
+url = "/languages/"
+weight = 1
+
+[[menu.main]]
+identifier = "LibraryFramework"
+name = "Library & Framework"
+url = "/library-and-frameworks/"
+weight = 1
+
+
+[[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = 2
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
