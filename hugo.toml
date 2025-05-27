@@ -6,6 +6,10 @@ theme = 'PaperMod'
 [params.assets]
   disableHLJS = true
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+    
 [markup]
   [markup.highlight]
     noClasses = true
