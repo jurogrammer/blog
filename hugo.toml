@@ -2,7 +2,7 @@ baseURL = 'https://jurogrammer.github.io/blog/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'PaperMod'
-
+      
 [params.assets]
   disableHLJS = true
 
@@ -19,6 +19,10 @@ theme = 'PaperMod'
     lineNumbersInTable = true
     tabWidth = 4
     codeFences = true
+  [markup.goldmark]
+  [markup.goldmark.renderer]
+    unsafe = true
+
 
 [menu]
 
@@ -32,6 +36,12 @@ weight = 1
 identifier = "LibraryFramework"
 name = "Library & Framework"
 url = "/library-and-frameworks/"
+weight = 1
+
+[[menu.main]]
+identifier = "Architecture"
+name = "Architecture"
+url = "/architecture"
 weight = 1
 
 
