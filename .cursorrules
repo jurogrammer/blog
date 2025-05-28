@@ -12,14 +12,19 @@ Purpose
 Translation Process
 1. A blog post link will be provided.
 2. The Korean content should be translated into English.
-3. If the post includes images, all images must be downloaded.
-4. Use <img> tags with a fixed width of 400px.
-5. Follow the folder structure already used in this project:
+3. Title is in <div class="area_title">
+4. Content is in <div class="area_view">
+5. If the post includes images, all images must be downloaded.
+    - the images represented by <img> tag in <div class="contents_style">.
+6. Use <img> tags with a fixed width of 400px.
+    - should be newlined after inserting <img>
+7. Follow the folder structure already used in this project:
   - Create a folder for the post.
   - Inside the folder, create an index.md file and include any necessary image files.
-6. don't ask me. just do all things.
-7. Do not create new content. Translate exactly as written.
+8. don't ask me. just do all things.
+9. Do not create new content. Translate exactly as written.
+10. obey directory structure.
 
 BestPractice
 1. input https://jurogrammer.tistory.com/106
-2. output 
+2. output content/architecture/design-pattern/Prototype Pattern
