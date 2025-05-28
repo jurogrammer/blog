@@ -26,7 +26,7 @@ It’s useful in situations where exactly one object is needed to coordinate act
 These are cases where a single, globally accessible instance makes sense.
 
 ## Structure
-![img](image.png)
+<img src="image.png" width="400px">
 To implement a Singleton:
 
 1. Make the constructor private so no other class can instantiate it.

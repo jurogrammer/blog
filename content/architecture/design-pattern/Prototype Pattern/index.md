@@ -9,7 +9,7 @@ tags: ["architecture", "DesignPattern"]
 
 The Prototype Pattern is a **creational design pattern**.  
 It enables the creation of new objects by copying an existing object, rather than creating them from scratch via their class constructors. This helps decouple code from specific classes.
-![proto](proto1.png)
+<img src="proto1.png" width="400px">
 ## Prototype: Common vs Software Usage
 
 When I first encountered the Prototype Pattern, I was confused. The word "prototype" in daily use has a slightly different meaning, so let’s clarify that first.
@@ -22,8 +22,7 @@ In game development, it can also mean a simplified version of the game created t
 A prototype is an object that supports cloning itself.  
 Rather than a draft or concept model, think of it like an amoeba that can self-replicate.  
 Despite the differences, both meanings derive from the idea of an "original form".
-
-![proto](proto2.png)
+<img src="proto2.png" width="400px">
 
 ## The Problem
 
@@ -50,7 +49,7 @@ This eliminates the need to access fields externally or know the concrete class.
 ## Structure
 
 ### 1. Basic Implementation
-![proto](proto3.png)
+<img src="proto3.png" width="400px">
 
 #### Prototype Interface
 
@@ -132,7 +131,8 @@ In this context, clients may either:
 1. Initialize and register objects to the registry.
 2. Fetch existing prototypes from the registry.
 
-![proto](proto4.png)
+
+<img src="proto4.png" width="400px">
 
 ## Limitations in Java
 
