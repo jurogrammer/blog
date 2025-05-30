@@ -7,8 +7,6 @@ tags: ["Architecture", "OOP", "SRP", "solid"]
 
 # Single Responsibility Principle
 
-<img src="1.png" width="400px">
-
 ## Source
 
 [https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
