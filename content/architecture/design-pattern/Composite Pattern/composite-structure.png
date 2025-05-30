@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <meta charset="utf-8">
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#A2E2FD" />
+
+            <style>
+        .buy-widget-excl-local-taxes {
+            display: none;
+        }
+    </style>
+    
+    <link rel="preload" href="/fonts/PTSans/ptsans-regular_en.woff2?1" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/PTSans/ptsans-bold_en.woff2?1" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/fontello/fontawesome.woff2?15843843" as="font" type="font/woff2" crossorigin>
+        <link rel="preconnect dns-prefetch" href="https://cdn.paddle.com">
+    <link rel="preconnect dns-prefetch" href="https://www.googletagmanager.com">
+
+
+
+
+    <link rel="icon" type="image/x-icon" href="/favicon.png"/>
+
+        <meta property="fb:app_id" content="666819623386327"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://refactoring.guru/images/refactoring/social/facebook-share-preview.png?id=dbf9e98269595be86eb668f365be6868"/>
+    
+                    <link rel="stylesheet" href="/css/public-packed.min.css?id=02892dcac926ef6002f3003a4baaeb68">
+        <style type="text/css">
+                    @font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:local("PT Sans"),local("PTSans-Regular"),url(/fonts/PTSans/ptsans-regular_cyrillic-ext.woff2?1) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:local("PT Sans"),local("PTSans-Regular"),url(/fonts/PTSans/ptsans-regular_cyrillic.woff2?1) format("woff2");unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:local("PT Sans"),local("PTSans-Regular"),url(/fonts/PTSans/ptsans-regular_latin-ext.woff2?1) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:local("PT Sans"),local("PTSans-Regular"),url(/fonts/PTSans/ptsans-regular_latin.woff2?1) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:local("PT Sans"),local("PTSans-Regular"),url(/fonts/PTSans/ptsans-regular_en.woff2?1) format("woff2");unicode-range:U+0-FF,U+131,U+142,U+152,U+153,U+2BB,U+2BC,U+2C6,U+2DA,U+2DC,U+420,U+423,U+430,U+438-43A,U+43D,U+440,U+441,U+443,U+44C,U+457,U+2000-206F,U+2074,U+20AA-20AC,U+20B4,U+20B9,U+20BA,U+20BD,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:local("PT Sans Bold"),local("PTSans-Bold"),url(/fonts/PTSans/ptsans-bold_cyrillic-ext.woff2?1) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:local("PT Sans Bold"),local("PTSans-Bold"),url(/fonts/PTSans/ptsans-bold_cyrillic.woff2?1) format("woff2");unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:local("PT Sans Bold"),local("PTSans-Bold"),url(/fonts/PTSans/ptsans-bold_latin-ext.woff2?1) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:local("PT Sans Bold"),local("PTSans-Bold"),url(/fonts/PTSans/ptsans-bold_latin.woff2?1) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:local("PT Sans Bold"),local("PTSans-Bold"),url(/fonts/PTSans/ptsans-bold_en.woff2?1) format("woff2");unicode-range:U+0-FF,U+131,U+142,U+152,U+153,U+2BB,U+2BC,U+2C6,U+2DA,U+2DC,U+420,U+423,U+430,U+438-43A,U+43D,U+440,U+441,U+443,U+44C,U+457,U+2000-206F,U+2074,U+20AA-20AC,U+20B4,U+20B9,U+20BA,U+20BD,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+            </style>
+
+    
+            <script defer src="/js/public.min.js?id=321a61e8ec476c5d446437da17682e14"></script>
+        <script defer src="/js/checkout.min.js?id=b4da9c5bd8b1cf504447c07ae8b7cd44"></script>
+            <script defer src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SR8Y3GYQYC"></script>
+
+
+    <script>
+function extend(){var extended={};var deep=false;var i=0;var length=arguments["length"];if(Object["prototype"]["toString"]["call"](arguments[0])=== '[object Boolean]'){deep= arguments[0];i++};var merge=function(obj){for(var prop in obj){if(Object["prototype"]["hasOwnProperty"]["call"](obj,prop)){if(deep&& Object["prototype"]["toString"]["call"](obj[prop])=== '[object Object]'){extended[prop]= extend(true,extended[prop],obj[prop])}else {extended[prop]= obj[prop]}}}};for(;i< length;i++){var obj=arguments[i];merge(obj)};return extended}
+function defer(method) {if (window.jQuery) {method();} else {setTimeout(function() { defer(method) }, 50);}}
+</script>
+<script>
++function(sd){sd = (typeof sd === "string") ? JSON.parse(atob(sd)) : sd;for(var property in sd){if(window[property]!== null&&  typeof window[property]=== 'object'){window[property]= extend(true,window[property],sd[property])}else {window[property]= sd[property]}}}("eyJsb2NhbGUiOiJlbiIsImxvY2FsZV9wcmVmaXgiOiIiLCJjb3VudHJ5IjoiS09SIiwibG9jYWxpemVkX3VybF9wcmVmaXgiOiJodHRwczpcL1wvcmVmYWN0b3JpbmcuZ3VydVwvIiwidXJsX3ByZWZpeCI6Imh0dHBzOlwvXC9yZWZhY3RvcmluZy5ndXJ1XC8iLCJsb2NhbGl6ZWRfdXJsX3ByZWZpeF9tIjoiaHR0cHM6XC9cL3JlZmFjdG9yaW5nLmd1cnVcLyIsInVybF9wcmVmaXhfbSI6Imh0dHBzOlwvXC9yZWZhY3RvcmluZy5ndXJ1XC8iLCJ1c2VyX2VjaG9fYWxpYXMiOiJyZWZhY3RvcmluZyIsInVzZXJfZWNob19ob3N0IjoiZmVlZGJhY2sucmVmYWN0b3JpbmcuZ3VydSIsInVzZXJfZWNob19wcml2YXRlX2ZvcnVtIjoiMiIsInVzZXJfZWNob19sb2NhbGUiOiJlbiIsInVzZXJfZWNob19wdWJsaWNfZm9ydW0iOiIzIiwidXNlcl9lY2hvX3B1YmxpY19mb3J1bV91cmwiOiJodHRwczpcL1wvZmVlZGJhY2sucmVmYWN0b3JpbmcuZ3VydVwvIiwidXNlcl9lY2hvX3Nzb190b2tlbiI6IiJ9");
+</script>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+            gtag('set', 'linker', {'domains': ["refactoring.guru,refactoringguru.cn"]});
+        gtag('config', 'G-SR8Y3GYQYC', {
+        // Disable default page view, because we're going to report them on our own.
+        // This is done to report traffic on localized domains as part of the main website traffic
+        // See the Chinese overrides below.
+        send_page_view: false,
+    });
+</script>
+
+<script>
+    (() => {
+        // On first page view after returning from social network, we need to send the social login event.
+        (function detectSocialLogin() {
+            let getCookie = function (name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            };
+            window.social_login_provider = window.social_login_provider || getCookie('social_login_provider');
+            if (window.social_login_provider) {
+                gtag('set', {referrer: null});
+                gtag('event', 'login', {"method": window.social_login_provider});
+                // Delete cookie.
+                document.cookie = 'social_login_provider=; Path=/; Max-Age=-99999999;';
+            }
+        })();
+
+        function trackPageView(location, title) {
+            location = location || document.location.href;
+            title = title || document.title;
+
+            // This is show on https://refactoringguru.cn/ and alike.
+            if (typeof window.analytics_path_prefix === 'string') {
+                if (/^(https?:\/\/[^\/]+?)\/$/.test(location)) {
+                    location = location.replace(/(https?:\/\/[^\/]+?)\//, '$1' + window.analytics_path_prefix);
+                } else {
+                    location = location.replace(/(https?:\/\/[^\/]+?)\//, '$1' + window.analytics_path_prefix + '/');
+                }
+                gtag('set', {
+                    'page_location': location
+                });
+            }
+
+            // This is show on https://refactoring.guru/zh/login and alike.
+            if (typeof window.analytics_location_prefix === 'string') {
+                location = location.replace(/(https?:\/\/[^\/]+?)\//, window.analytics_location_prefix);
+                gtag('set', {
+                    'page_location': location
+                });
+            }
+
+            gtag('event', 'page_view', {
+                page_location: location,
+                page_title: title,
+                locale: window.locale ?? 'en'
+            });
+        }
+
+        if (window.loadContent) {
+            window.onPageLoad = window.onPageLoad || [];
+            window.onPageLoad.push({
+                func: function (context) {
+                    trackPageView(window.location.origin + context.canonicalPath, context.title);
+                },
+                afterAll: true,
+            });
+        }
+        else {
+            trackPageView();
+        }
+    })();
+</script>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+</head>
+<body class="locale-en    announcement   hg-content no-feature  " data-body_class="">
+
+<div class="body-holder">
+
+            <div class="announcement-block announcement-block-spring prom" data-id="DIDP-announcement" data-creative-id="en" data-position="top">
+        <a href="/store">
+            <img src="/images/content-public/ann/spring/reading-book.svg?id=36006ea720df8c171968cf613e8ea164" loading="lazy" style="width: 32px; height:32px;vertical-align: middle;">
+            <span class="announcement-link-text">Spring SALE</span>
+            <img src="/images/content-public/ann/spring/pollen.svg?id=f682784dcc87c08bec4ab7cda8aa546e" loading="lazy" style="width: 32px; height:32px;vertical-align: middle;">
+        </a>
+    </div>
+
+
+    
+    <div class="cart-placeholder">
+    <div class="cart-block-container" style="display:none">
+        <div class="cart-block btn-group">
+            <a href="#checkout" class="btn cart open-checkout">
+                <span class="cart-text"></span>&nbsp;<strong class="cart-total font-money"></strong>
+            </a><a href="#checkout" class="btn btn-secondary checkout open-checkout"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="btn-text-span d-none d-sm-inline-block d-lg-none d-hg-inline-block"></span></a>
+        </div>
+    </div>
+</div>
+    <main role="main" class="main-content top-content center-content " data-page_class="">
+        <div class="main-content-container center-content-container">
+                            <div class="page page404 text">
+
+                    <h1>404: Page not found</h1>
+
+            <p>The page you've requested can not be displayed. It appears you've missed your intended destination, either
+                through a bad or outdated link, or a typo in the page you were hoping to reach.</p>
+
+            <h3>What can you do?</h3>
+            <ul>
+                <li>You can <a href="/">return to the home page</a> if you're feeling lost.</li>
+                <li>If you think this is our mistake, you can also <a class="userecho-private" href="https://refactoring.userecho.com/?show_feedback_form_private=true" rel="nofollow" title="Contact us">contact us</a>. We'll be thankful.
+                </li>
+                <li>Or you can use the search box to find the information you've been looking for.</li>
+            </ul>
+        
+        <style>
+            .cse .gsc-search-button input.gsc-search-button-v2,
+            input.gsc-search-button-v2 {
+                height: 26px !important;
+                margin-top: 0 !important;
+                min-width: 13px !important;
+                padding: 5px 26px !important;
+                width: 68px !important;
+                vertical-align: middle;
+            }
+            .gsst_a {
+                box-shadow: none !important;
+            }
+        </style>
+        <script>
+            (function() {
+                var cx = '015222666657771934171:tftbmemfn-q';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx + '&language=en';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
+                    </div>
+    </main>
+
+    <aside class="sidebar main-menu">
+    <div class="main-menu-controls">
+        <button class="navigation-toggle"><i class="fa fa-fw fa-times"></i></button>
+    </div>
+    <div class="main-menu-list-wrapper nano">
+        <div class="main-menu-list nano-content">
+            <a class="menu-brand" href="/">
+                                    <img width=200 height=241 loading="lazy" alt="Refactoring.Guru" src="/images/content-public/logos/logo-new.png?id=97d554614702483f31e38b32e82d8e34" srcset="/images/content-public/logos/logo-new-2x.png?id=3bc33294e095bab1d6fe9ae421d07837 2x">
+                            </a>
+
+            <div class="menu-container" style="position: relative">
+                                <ul class="menu-list trail active">
+                            <li class="featured">
+            <a href="/store">
+                <i class="fa fa-fw fa-star" aria-hidden="true"></i> Premium Content
+            </a>
+    
+            <ul >
+                            <li class="featured menu-fs15">
+            <a href="/design-patterns/book">
+                <i class="fa fa-fw fa-book" aria-hidden="true"></i> Design Patterns eBook
+            </a>
+    
+    
+            </li>
+                                <li class="featured menu-fs15">
+            <a href="/refactoring/course">
+                <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i> Refactoring Course
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring">
+                <i class="fa fa-fw fa-scissors" aria-hidden="true"></i> Refactoring
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/refactoring/what-is-refactoring">
+                What is Refactoring
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/refactoring/what-is-refactoring">
+                Clean code
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/technical-debt">
+                Technical debt
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/when">
+                When to refactor
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/how-to">
+                How to refactor
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/catalog">
+                Catalog
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/smells">
+                Code Smells
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/refactoring/smells/bloaters">
+                Bloaters
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/smells/long-method">
+                Long Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/large-class">
+                Large Class
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/primitive-obsession">
+                Primitive Obsession
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/long-parameter-list">
+                Long Parameter List
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/data-clumps">
+                Data Clumps
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/smells/oo-abusers">
+                Object-Orientation Abusers
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/smells/switch-statements">
+                Switch Statements
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/temporary-field">
+                Temporary Field
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/refused-bequest">
+                Refused Bequest
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/alternative-classes-with-different-interfaces">
+                Alternative Classes with Different Interfaces
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/smells/change-preventers">
+                Change Preventers
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/smells/divergent-change">
+                Divergent Change
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/shotgun-surgery">
+                Shotgun Surgery
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/parallel-inheritance-hierarchies">
+                Parallel Inheritance Hierarchies
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/smells/dispensables">
+                Dispensables
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/smells/comments">
+                Comments
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/duplicate-code">
+                Duplicate Code
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/lazy-class">
+                Lazy Class
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/data-class">
+                Data Class
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/dead-code">
+                Dead Code
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/speculative-generality">
+                Speculative Generality
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/smells/couplers">
+                Couplers
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/smells/feature-envy">
+                Feature Envy
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/inappropriate-intimacy">
+                Inappropriate Intimacy
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/message-chains">
+                Message Chains
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/smells/middle-man">
+                Middle Man
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/smells/other">
+                Other Smells
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/smells/incomplete-library-class">
+                Incomplete Library Class
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/techniques">
+                Refactorings
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/refactoring/techniques/composing-methods">
+                Composing Methods
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/extract-method">
+                Extract Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/inline-method">
+                Inline Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/extract-variable">
+                Extract Variable
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/inline-temp">
+                Inline Temp
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-temp-with-query">
+                Replace Temp with Query
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/split-temporary-variable">
+                Split Temporary Variable
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/remove-assignments-to-parameters">
+                Remove Assignments to Parameters
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-method-with-method-object">
+                Replace Method with Method Object
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/substitute-algorithm">
+                Substitute Algorithm
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/techniques/moving-features-between-objects">
+                Moving Features between Objects
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/move-method">
+                Move Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/move-field">
+                Move Field
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/extract-class">
+                Extract Class
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/inline-class">
+                Inline Class
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/hide-delegate">
+                Hide Delegate
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/remove-middle-man">
+                Remove Middle Man
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/introduce-foreign-method">
+                Introduce Foreign Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/introduce-local-extension">
+                Introduce Local Extension
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/techniques/organizing-data">
+                Organizing Data
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/self-encapsulate-field">
+                Self Encapsulate Field
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-data-value-with-object">
+                Replace Data Value with Object
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/change-value-to-reference">
+                Change Value to Reference
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/change-reference-to-value">
+                Change Reference to Value
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-array-with-object">
+                Replace Array with Object
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/duplicate-observed-data">
+                Duplicate Observed Data
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/change-unidirectional-association-to-bidirectional">
+                Change Unidirectional Association to Bidirectional
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/change-bidirectional-association-to-unidirectional">
+                Change Bidirectional Association to Unidirectional
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-magic-number-with-symbolic-constant">
+                Replace Magic Number with Symbolic Constant
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/encapsulate-field">
+                Encapsulate Field
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/encapsulate-collection">
+                Encapsulate Collection
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-type-code-with-class">
+                Replace Type Code with Class
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-type-code-with-subclasses">
+                Replace Type Code with Subclasses
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-type-code-with-state-strategy">
+                Replace Type Code with State/Strategy
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-subclass-with-fields">
+                Replace Subclass with Fields
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/techniques/simplifying-conditional-expressions">
+                Simplifying Conditional Expressions
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/decompose-conditional">
+                Decompose Conditional
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/consolidate-conditional-expression">
+                Consolidate Conditional Expression
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/consolidate-duplicate-conditional-fragments">
+                Consolidate Duplicate Conditional Fragments
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/remove-control-flag">
+                Remove Control Flag
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-nested-conditional-with-guard-clauses">
+                Replace Nested Conditional with Guard Clauses
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-conditional-with-polymorphism">
+                Replace Conditional with Polymorphism
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/introduce-null-object">
+                Introduce Null Object
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/introduce-assertion">
+                Introduce Assertion
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/techniques/simplifying-method-calls">
+                Simplifying Method Calls
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/rename-method">
+                Rename Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/add-parameter">
+                Add Parameter
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/remove-parameter">
+                Remove Parameter
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/separate-query-from-modifier">
+                Separate Query from Modifier
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/parameterize-method">
+                Parameterize Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-parameter-with-explicit-methods">
+                Replace Parameter with Explicit Methods
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/preserve-whole-object">
+                Preserve Whole Object
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-parameter-with-method-call">
+                Replace Parameter with Method Call
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/introduce-parameter-object">
+                Introduce Parameter Object
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/remove-setting-method">
+                Remove Setting Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/hide-method">
+                Hide Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-constructor-with-factory-method">
+                Replace Constructor with Factory Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-error-code-with-exception">
+                Replace Error Code with Exception
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-exception-with-test">
+                Replace Exception with Test
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/refactoring/techniques/dealing-with-generalization">
+                Dealing with Generalization
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/pull-up-field">
+                Pull Up Field
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/pull-up-method">
+                Pull Up Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/pull-up-constructor-body">
+                Pull Up Constructor Body
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/push-down-method">
+                Push Down Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/push-down-field">
+                Push Down Field
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/extract-subclass">
+                Extract Subclass
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/extract-superclass">
+                Extract Superclass
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/extract-interface">
+                Extract Interface
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/collapse-hierarchy">
+                Collapse Hierarchy
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/form-template-method">
+                Form Template Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-inheritance-with-delegation">
+                Replace Inheritance with Delegation
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/replace-delegation-with-inheritance">
+                Replace Delegation with Inheritance
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                        </ul>
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns">
+                <i class="fa fa-fw fa-puzzle-piece" aria-hidden="true"></i> Design Patterns
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/design-patterns/what-is-pattern">
+                What is a Pattern
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/design-patterns/what-is-pattern">
+                What's a design pattern?
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/history">
+                History of patterns
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/why-learn-patterns">
+                Why should I learn patterns?
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/criticism">
+                Criticism of patterns
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/classification">
+                Classification of patterns
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/catalog">
+                Catalog
+            </a>
+    
+    
+            </li>
+                                <li class="menu-third-level">
+            <a href="/design-patterns/creational-patterns">
+                Creational Patterns
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/design-patterns/factory-method">
+                Factory Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/abstract-factory">
+                Abstract Factory
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/builder">
+                Builder
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/prototype">
+                Prototype
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/singleton">
+                Singleton
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="menu-third-level">
+            <a href="/design-patterns/structural-patterns">
+                Structural Patterns
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/design-patterns/adapter">
+                Adapter
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/bridge">
+                Bridge
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/composite">
+                Composite
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/decorator">
+                Decorator
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/facade">
+                Facade
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/flyweight">
+                Flyweight
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/proxy">
+                Proxy
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="menu-third-level">
+            <a href="/design-patterns/behavioral-patterns">
+                Behavioral Patterns
+            </a>
+    
+            <ul >
+                            <li class="">
+            <a href="/design-patterns/chain-of-responsibility">
+                Chain of Responsibility
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/command">
+                Command
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/iterator">
+                Iterator
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/mediator">
+                Mediator
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/memento">
+                Memento
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/observer">
+                Observer
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/state">
+                State
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/strategy">
+                Strategy
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/template-method">
+                Template Method
+            </a>
+    
+    
+            </li>
+                                <li class="">
+            <a href="/design-patterns/visitor">
+                Visitor
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                                <li class="menu-code-examples">
+            <a href="/design-patterns/examples">
+                Code Examples
+            </a>
+    
+            <ul >
+                            <li class="menu-code-examples-item">
+            <a href="/design-patterns/csharp">
+                C#
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/cpp">
+                C++
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/go">
+                Go
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/java">
+                Java
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/php">
+                PHP
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/python">
+                Python
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/ruby">
+                Ruby
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/rust">
+                Rust
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/swift">
+                Swift
+            </a>
+    
+    
+            </li>
+                                <li class="menu-code-examples-item">
+            <a href="/design-patterns/typescript">
+                TypeScript
+            </a>
+    
+    
+            </li>
+                        </ul>
+    
+            </li>
+                        </ul>
+    
+            </li>
+                        </ul>
+    
+                </div>
+
+            <div class="main-menu-aux-controls">
+                <a href="https://refactoring.guru/login" title="Sign in" style=" display: inline-flex; align-items: center; gap: 6px; "><svg style="width: 16px; height: 16px; filter:drop-shadow(0 1px 1px #74261e)" class="inline-block mx-0"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor"opacity="0.4" d="M352.7 222.4c3.2 1 6.5 1.6 10 1.6l21.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-21.3 0c-.8 0-1.7 0-2.5 0c-.9 0-1.7-.1-2.5-.1c-1.7-.1-3.4-.2-5-.4C357.4 414 391.1 512 432 512c44.2 0 80-114.6 80-256S476.2 0 432 0c-40.6 0-74.2 96.9-79.3 222.4z"/><path fill="currentColor"class="fa-primary" d="M320 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM125.7 175.5c9.9-9.9 23.4-15.5 37.5-15.5c1.9 0 3.8 .1 5.6 .3L137.6 254c-9.3 28 1.7 58.8 26.8 74.5l86.2 53.9-25.4 88.8c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l28.7-100.4c5.9-20.6-2.6-42.6-20.7-53.9L238 299l30.9-82.4 5.1 12.3C289 264.7 323.9 288 362.7 288l21.3 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-21.3 0c-12.9 0-24.6-7.8-29.5-19.7l-6.3-15c-14.6-35.1-44.1-61.9-80.5-73.1l-48.7-15c-11.1-3.4-22.7-5.2-34.4-5.2c-31 0-60.8 12.3-82.7 34.3L57.4 153.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l23.1-23.1zM91.2 352L32 352c-17.7 0-32 14.3-32 32s14.3 32 32 32l69.6 0c19 0 36.2-11.2 43.9-28.5L157 361.6l-9.5-6c-17.5-10.9-30.5-26.8-37.9-44.9L91.2 352z"/></svg> Sign in</a>
+                <a href="https://feedback.refactoring.guru/" class="userecho-public" rel="nofollow" title="Contact us"><i class="fa fa-fw fa-fw fa-envelope" aria-hidden="true"></i> Contact us</a>
+            </div>
+        </div>
+    </div>
+</aside>
+
+    <nav class="navigation" role="navigation">
+    <div class="navigation-container">
+        <a class="navigation-brand" href="/">
+            <img alt="Refactoring.Guru"
+                 src="/images/content-public/logos/logo-new-mobile.png?id=ea18aa9b032eaa92835ed6d472b03b4a"
+                 srcset="/images/content-public/logos/logo-new-mobile-2x.png?id=7ad5648bfd86ae2e8524147a72877c64 2x">
+        </a>
+
+        <div class="shop-link d-none d-lg-block" style="display: none !important;">
+            <a class="btn btn-md btn-primary btn-featured" href="/store"><svg style="width: 28px; height: 28px; fill: currentColor; display: inline-block; margin-top: -14px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M356 60l60 20-60 20-20 60-20-60L256 80l60-20L336 0l20 60zM464 208l48 16-48 16-16 48-16-48-48-16 48-16 16-48 16 48zm-243.8-9.8l33 66.9 73.8 10.7 59.8 8.7-43.3 42.2-53.4 52.1 12.6 73.5L313 512l-53.5-28.1-66-34.7-66 34.7L73.9 512l10.2-59.6 12.6-73.5L43.3 326.8 0 284.6l59.8-8.7 73.8-10.7 33-66.9L193.5 144l26.8 54.2zm26.1 114.4l-25-3.6-11.2-22.6-16.7-33.9-16.7 33.9L165.6 309l-25 3.6-37.4 5.4 27.1 26.4 18.1 17.6L144 387l-6.4 37.3 33.5-17.6 22.3-11.7 22.3 11.7 33.5 17.6L242.9 387l-4.3-24.9 18.1-17.6 27.1-26.4-37.4-5.4z"/></svg>
+                Shop Now!</a>
+        </div>
+
+        <ul class="navigation-menu">
+                            <li class="nav-locale dropdown dropdown-locales">
+                    <button class="dropdown-toggle" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-globe" aria-hidden="true"></i> <span class="caption d-none d-lg-inline-block">English</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLanguage">
+                                                                                                                                                <a href="https://refactoring.guru" class="dropdown-item locale-link" data-locale="en" title="English">English</a>
+                                                                                                                                                                                    <a href="https://refactoring.guru/es" class="dropdown-item locale-link" data-locale="es" title="Español">Español</a>
+                                                                                                                                                                                    <a href="https://refactoring.guru/fr" class="dropdown-item locale-link" data-locale="fr" title="Français">Français</a>
+                                                                                                                                                                                    <a href="https://refactoring.guru/pl" class="dropdown-item locale-link" data-locale="pl" title="Polski">Polski</a>
+                                                                                                                                                                                    <a href="https://refactoring.guru/pt-br" class="dropdown-item locale-link" data-locale="pt-br" title="Português Brasileiro">Português Brasileiro</a>
+                                                                                                                                                                                    <a href="https://refactoring.guru/ru" class="dropdown-item locale-link" data-locale="ru" title="Русский">Русский</a>
+                                                                                                                                                                                    <a href="https://refactoring.guru/uk" class="dropdown-item locale-link" data-locale="uk" title="Українська">Українська</a>
+                                                                                                                                                                                    <a href="https://refactoringguru.cn" class="dropdown-item locale-link" data-locale="zh" title="中文">中文</a>
+                                                                                                                                                                                    <a href="https://refactoring.guru/ja" class="dropdown-item locale-link" data-locale="ja" title="日本語">日本語</a>
+                                                                                                                                                                                    <a href="https://refactoring.guru/ko" class="dropdown-item locale-link" data-locale="ko" title="한국어">한국어</a>
+                                                                                                        </div>
+                </li>
+                        <li class="nav-contacts">
+                <a class="userecho-private" href="https://feedback.refactoring.guru/?show_feedback_form_private=true" rel="nofollow" title="Contact us">
+                    <i class="fa fa-fw fa-envelope" aria-hidden="true"></i> <span class="caption d-none d-xl-inline-block">Contact us</span>
+                </a>
+            </li>
+                            <li class="nav-user">
+                    <a href="https://refactoring.guru/login?destination=images/patterns/diagrams/composite/structure.png" title="Sign in"><span class="sign-in-icon"><svg style="width: 24px; height: 24px; " class="inline-block "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor"opacity="0.4" d="M352.7 222.4c3.2 1 6.5 1.6 10 1.6l21.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-21.3 0c-.8 0-1.7 0-2.5 0c-.9 0-1.7-.1-2.5-.1c-1.7-.1-3.4-.2-5-.4C357.4 414 391.1 512 432 512c44.2 0 80-114.6 80-256S476.2 0 432 0c-40.6 0-74.2 96.9-79.3 222.4z"/><path fill="currentColor"class="fa-primary" d="M320 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM125.7 175.5c9.9-9.9 23.4-15.5 37.5-15.5c1.9 0 3.8 .1 5.6 .3L137.6 254c-9.3 28 1.7 58.8 26.8 74.5l86.2 53.9-25.4 88.8c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l28.7-100.4c5.9-20.6-2.6-42.6-20.7-53.9L238 299l30.9-82.4 5.1 12.3C289 264.7 323.9 288 362.7 288l21.3 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-21.3 0c-12.9 0-24.6-7.8-29.5-19.7l-6.3-15c-14.6-35.1-44.1-61.9-80.5-73.1l-48.7-15c-11.1-3.4-22.7-5.2-34.4-5.2c-31 0-60.8 12.3-82.7 34.3L57.4 153.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l23.1-23.1zM91.2 352L32 352c-17.7 0-32 14.3-32 32s14.3 32 32 32l69.6 0c19 0 36.2-11.2 43.9-28.5L157 361.6l-9.5-6c-17.5-10.9-30.5-26.8-37.9-44.9L91.2 352z"/></svg></span> <span class="account-icon" style="display:none"><svg style="width: 24px; height: 24px; " class="inline-block "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor"opacity="0.4" d="M64 270.5l224-196c74.7 65.4 149.4 130.7 224.1 196.1l.4 177.3c.1 35.4-28.6 64.1-64 64.1l-320.4 0c-35.3 0-64-28.6-64-64L64 270.5zM176.1 433.6c.1 .5 .1 1.1 .2 1.6c.2 1 .5 2 .9 3c.8 1.9 2 3.6 3.4 5.1c2.9 2.9 6.9 4.7 11.3 4.7l192 0c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80l-64 0c-22.1 0-42.1 9-56.6 23.4c-7.2 7.2-13.1 15.9-17.1 25.4c-2 4.8-3.6 9.8-4.7 15c-.5 2.6-.9 5.3-1.2 7.9c-.1 1.3-.2 2.7-.3 4.1c-.1 1.4-.1 2.7-.1 4.1c0 .6 0 1.1 .1 1.6zm48.2-184.2c-.1 1.1-.2 2.2-.2 3.2c-.1 1.1-.1 2.2-.1 3.3s0 2.2 .1 3.3c.1 1.1 .1 2.2 .2 3.2c.2 2.1 .5 4.3 1 6.4c.9 4.2 2.1 8.2 3.7 12c3.2 7.7 7.9 14.6 13.7 20.3C254.3 312.8 270.3 320 288 320c35.3 0 64-28.7 64-64s-28.7-64-64-64c-17.7 0-33.7 7.2-45.3 18.7c-5.8 5.8-10.5 12.7-13.7 20.3c-1.6 3.8-2.9 7.8-3.7 12c-.4 2.1-.8 4.2-1 6.4z"/><path fill="currentColor"class="fa-primary" d="M309.1 7.9C297-2.6 279-2.6 266.9 7.9l-256 224c-13.3 11.6-14.6 31.9-3 45.2s31.9 14.6 45.2 3L288 74.5 522.9 280.1c13.3 11.6 33.5 10.3 45.2-3s10.3-33.5-3-45.2L512 185.5 512 64c0-17.7-14.3-32-32-32l-32 0c-17.7 0-32 14.3-32 32l0 37.5L309.1 7.9zM352 256a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zm-96 96c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16l192 0c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80l-64 0z"/></svg></span> <span class="sign-out-icon" style="display:none"><svg style="width: 24px; height: 24px; " class="inline-block "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor"opacity="0.4" d="M0 256C0 397.4 35.8 512 80 512c25.3 0 47.8-37.5 62.5-96L128 416c-.5 0-1.1 0-1.6 0c-.6 0-1.1-.1-1.6-.1c-1.1-.1-2.1-.3-3.2-.5c-2.1-.4-4.1-1.1-6-1.9c-3.8-1.6-7.3-4-10.2-6.9s-5.2-6.3-6.9-10.2c-.8-1.9-1.4-3.9-1.9-6c-.2-1.1-.4-2.3-.5-3.5c0-.3 0-.6-.1-.8c0-.2 0-.4 0-.7c0-.4 0-.7 0-.7c0-.5 0-.7 0-.9c0-.3 0-.6 0-.9c0 0 0-.3 0-.7c0-.2 0-.4 0-.7c0-.2 0-.4 .1-.8c0-.3 .1-.6 .1-.9c0-.2 .1-.4 .1-.7c.1-.8 .2-1.2 .3-1.7c.5-2.2 1.1-4.2 1.9-6.1c1.6-3.8 4-7.3 6.9-10.2c5.8-5.8 13.8-9.4 22.6-9.4l26.2 0c3.8-29.6 5.8-62.1 5.8-96c0-18.3-.6-36.1-1.7-53.4c-1.7-1.2-3.4-2.5-4.9-4c-.8-.8-1.6-1.6-2.2-2.5s-1.3-1.7-1.9-2.6c-1.2-1.8-2.1-3.6-2.9-5.5s-1.4-3.9-1.8-5.9c-.2-1-.3-2-.4-3s-.1-2-.2-3c0-8.3 3.1-16.5 9.4-22.8C141 63.1 112.8 0 80 0C35.8 0 0 114.6 0 256z"/><path fill="currentColor"class="fa-primary" d="M416 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM221.7 175.5c9.9-9.9 23.4-15.5 37.5-15.5c1.9 0 3.8 .1 5.6 .3L233.6 254c-9.3 28 1.7 58.8 26.8 74.5l86.2 53.9-25.4 88.8c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l28.7-100.4c5.9-20.6-2.6-42.6-20.7-53.9L334 299l30.9-82.4 5.1 12.3C385 264.7 419.9 288 458.7 288l21.3 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-21.3 0c-12.9 0-24.6-7.8-29.5-19.7l-6.3-15c-14.6-35.1-44.1-61.9-80.5-73.1l-48.7-15c-11.1-3.4-22.7-5.2-34.4-5.2c-31 0-60.8 12.3-82.7 34.3l-23.1 23.1c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l23.1-23.1zM187.2 352L128 352c-17.7 0-32 14.3-32 32s14.3 32 32 32l69.6 0c19 0 36.2-11.2 43.9-28.5L253 361.6l-9.5-6c-17.5-10.9-30.5-26.8-37.9-44.9L187.2 352z"/></svg></span> <span class="caption d-none d-xl-inline-block">Sign in</span></a>
+                </li>
+                        <li class="nav-menu">
+                <button class="navigation-toggle"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <footer class="footer center-content">
+    <div class="footer-container center-content-container">
+        <div class="footer-inner container-fluid">
+            <div class="row">
+                <div class="col-8 col-md-10">
+                    <ul class="footer-list footer-list-horizontal">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/refactoring">Refactoring</a></li>
+                        <li><a href="/design-patterns">Design Patterns</a></li>
+                        <li><a href="/store">Premium Content</a></li>
+                        <li><a href="https://refactoring.userecho.com/" rel="nofollow" class="userecho-public">Forum</a></li>
+                        <li><a href="https://refactoring.userecho.com/" rel="nofollow" class="userecho-private">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-4 col-md-2">
+                    <ul class="footer-list footer-list-iconic footer-list-right">
+                                                    <li><a href="https://www.facebook.com/refactoring.guru"><i class="fa fa-facebook-official"></i></a></li>
+                                                <li><a href="/sendy/form" rel="nofollow"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/RefactoringGuru"><i class="fa fa-github-circled"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-second">
+        <div class="footer-container center-content-container">
+            <div class="footer-inner container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <i class="fa fa-fw fa-copyright"></i> 2014-2025 <a href="/">Refactoring.Guru</a>. <span style="white-space: nowrap">All rights reserved.</span><br>
+                        <i class="fa fa-fw fa-image"></i> Illustrations by <a href="http://zhart.us/" rel="nofollow"><span style="white-space: nowrap">Dmitry Zhart</span></a>
+                    </div>
+                    <div class="footer-links-right col-12 col-sm-6 mt-4 mt-sm-0">
+                        <ul class="footer-list footer-list-horizontal footer-list-right">
+                            <li><a href="/terms"><span>Terms &amp; Conditions</span></a>
+                            </li>
+                            <li><a href="/privacy-policy"><span>Privacy Policy</span></a>
+                            </li>
+                            <li><a href="/content-usage-policy"><span>Content Usage Policy</span></a>
+                            </li>
+                            <li><a href="/site-about"><span>About us</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                                    <div class="row">
+                        <div class="col-12 col-sm-4">
+                            <div class="mt-4">
+                                                                    <b>Ukrainian office:</b><br>
+                                    <object class="fa-fw" style="height: 0.8rem; filter: invert(50%);"  type="image/svg+xml" data="/images/content-public/icons/fa-building.svg?id=afddb5806968b0a9acfc1df75a181234">
+                                        <img class="fa-fw" style="height: 0.8rem;" src="/images/content-public/icons/fa-building.svg?id=afddb5806968b0a9acfc1df75a181234" alt="Organization address"/>
+                                    </object> FOP Olga Skobeleva<br>
+                                    <svg style="width: 16px; height: 16px; margin-right: 1px; fill: currentColor;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M352 192c0-88.4-71.6-160-160-160S32 103.6 32 192c0 15.6 5.4 37 16.6 63.4c10.9 25.9 26.2 54 43.6 82.1c34.1 55.3 74.4 108.2 99.9 140c25.4-31.8 65.8-84.7 99.9-140c17.3-28.1 32.7-56.3 43.6-82.1C346.6 229 352 207.6 352 192zm32 0c0 87.4-117 243-168.3 307.2c-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192C0 86 86 0 192 0S384 86 384 192zm-240 0a48 48 0 1 0 96 0 48 48 0 1 0 -96 0zm48 80a80 80 0 1 1 0-160 80 80 0 1 1 0 160z"/></svg> Abolmasova 7<br>
+                                    <span style="margin-left: 21px;">Kyiv, Ukraine, 02002</span><br>
+                                    <i class="fa fa-fw fa-envelope"></i>  Email: support@refactoring.guru
+                                
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="mt-4">
+                                <b>Spanish office:</b><br>
+                                <object class="fa-fw" style="height: 0.8rem; filter: invert(50%);"  type="image/svg+xml" data="/images/content-public/icons/fa-building.svg?id=afddb5806968b0a9acfc1df75a181234">
+                                    <img class="fa-fw" style="height: 0.8rem;" src="/images/content-public/icons/fa-building.svg?id=afddb5806968b0a9acfc1df75a181234" alt="Organization address"/>
+                                </object> Oleksandr Shvets<br>
+                                <svg style="width: 16px; height: 16px; margin-right: 1px; fill: currentColor;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M352 192c0-88.4-71.6-160-160-160S32 103.6 32 192c0 15.6 5.4 37 16.6 63.4c10.9 25.9 26.2 54 43.6 82.1c34.1 55.3 74.4 108.2 99.9 140c25.4-31.8 65.8-84.7 99.9-140c17.3-28.1 32.7-56.3 43.6-82.1C346.6 229 352 207.6 352 192zm32 0c0 87.4-117 243-168.3 307.2c-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192C0 86 86 0 192 0S384 86 384 192zm-240 0a48 48 0 1 0 96 0 48 48 0 1 0 -96 0zm48 80a80 80 0 1 1 0-160 80 80 0 1 1 0 160z"/></svg> Avda Pamplona 64<br>
+                                <span style="margin-left: 21px;">Pamplona, Spain, 31009</span><br>
+                                <i class="fa fa-fw fa-envelope"></i>  Email: support@refactoring.guru
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+
+    <script>
+        var prefix = '';
+        var segments = window.location.pathname.split('/');
+        if (segments.length >= 2) {
+            if (segments[1].length === 2) {
+                prefix = segments[1];
+            }
+        }
+        prefix = prefix ? prefix + '/' : '';
+        var baseUrl = window.location.protocol + "//" + window.location.host + "/" + prefix;
+
+        var normalRequest = function () {
+            $.ajax({
+                url: baseUrl + 'ajax/user',
+                crossDomain: true,
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                }
+            }).done(successFunc);
+        };
+        var successFunc = function(data){
+            if (data.user && data._token) {
+                if (data.user && data._token) {
+                    console.log('Logged-in user session detected.');
+                    const href = $('.navigation-menu .nav-user a').attr('href');
+                    $('.navigation-menu .nav-user a').attr('href', href.replace(/\?.*/, ''));
+                    $('.navigation-menu .nav-user a .caption').text(data.translations['my_account']);
+                    $('.navigation-menu .nav-user .sign-in-icon').hide();
+                    $('.navigation-menu .nav-user .account-icon').show();
+
+                    const signOutIcon = $('.navigation-menu .nav-user .sign-out-icon').html();
+                    if (!$('.navigation-menu .nav-logout').length) {
+                        $('.navigation-menu .nav-user').after('<li class="nav-logout"><form method="post" action="'+ window.localized_url_prefix_m + 'logout"><input name="_token" type="hidden" value="' + data._token + '" ><button title="' + data.translations['sign_out'] + '">' + signOutIcon + ' <span class="caption d-none d-xl-inline-block">' + data.translations['sign_out'] + '</span></button></form></li>');
+                    }
+                }
+            }
+        };
+        normalRequest();
+    </script>
+</body>
+</html>
