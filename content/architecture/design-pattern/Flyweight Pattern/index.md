@@ -1,7 +1,7 @@
 ---
 title: "Flyweight Pattern"
 date: 2020-10-12
- draft: false
+draft: false
 categories: ["architecture"]
 tags: ["architecture", "DesignPattern"]
 ---
