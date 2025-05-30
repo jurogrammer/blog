@@ -2,7 +2,7 @@
 title: "Abstract Factory Pattern"
 date: 2020-10-11
 draft: false
-categories: ["architecture"]
+categories: ["Architecture"]
 tags: ["architecture", "DesignPattern"]
 ---
 

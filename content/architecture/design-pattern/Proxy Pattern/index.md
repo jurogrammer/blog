@@ -1,8 +1,8 @@
 ---
 title: "Proxy Pattern"
 date: 2020-10-12
-categories: ["Design Pattern", "Structural Design Pattern"]
-tags: ["design-pattern", "Pattern", "Proxy", "proxy-pattern", "프록시"]
+categories: ["Architecture"]
+tags: ["DesignPattern"]
 ---
 
 # References
