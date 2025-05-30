@@ -12,19 +12,30 @@ Purpose
 Translation Process
 1. A blog post link will be provided.
 2. The Korean content should be translated into English.
-3. Title is in <div class="area_title">
-4. Content is in <div class="area_view">
-5. If the post includes images, all images must be downloaded.
-    - the images represented by <img> tag in <div class="contents_style">.
-6. Use <img> tags with a fixed width of 400px.
+3. you must find Title, Content, Images by parsing html elements.
+4. Title is in <div class="area_title">
+5. Content is in <div class="area_view">
+6. If the post includes images, all images must be downloaded.
+    - The images are usually within <div class="area_view">, regardless of nesting.
+    - The images are start with <img src="
+7. Use <img> tags with a fixed width of 400px in my blog post.
     - should be newlined after inserting <img>
-7. Follow the folder structure already used in this project:
+8. Follow the folder structure already used in this project:
   - Create a folder for the post.
   - Inside the folder, create an index.md file and include any necessary image files.
-8. don't ask me. just do all things.
-9. Do not create new content. Translate exactly as written.
-10. obey directory structure.
+9. don't ask me. just do all things.
+10. Do not create new content. Translate exactly as written.
+11. obey directory structure.
 
 BestPractice
 1. input https://jurogrammer.tistory.com/106
 2. output content/architecture/design-pattern/Prototype Pattern
+
+Image Extraction Rule
+Always use the raw HTML source of the blog post as the basis for image extraction (don't request me to download rawHTML you must do it to automation.)
+Search for all occurrences of <img src=" in the HTML, regardless of their location or nesting.
+Extract every image URL found in any <img src="..."> tag within the HTML.
+Download each image and save it in the same folder as the translated post.
+Insert each image into the translated markdown using <img src="..." width="400px"> with a newline after each image.
+Do not rely on rendered, summarized, or visually parsed content—only the raw HTML is authoritative for image detection.
+If you cannot fetch the HTML directly, request the user to provide it or to run a command like curl <url> | grep '<img src=' and share the output.
