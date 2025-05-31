@@ -38,6 +38,7 @@ Image Extraction Rule
 Always use the raw HTML source of the blog post as the basis for image extraction (don't request me to download rawHTML you must do it to automation.)
 Search for all occurrences of <img src=" in the HTML, regardless of their location or nesting.
 Extract every image URL found in any <img src="..."> tag within the HTML.
+Skip known default/placeholder images, such as those from tistory_admin/static/manage/images/r3/default_L.png.
 Download each image and save it in the same folder as the translated post.
 Insert each image into the translated markdown using markdown image tag (ex ![img1](img1.png))
 Do not rely on rendered, summarized, or visually parsed content—only the raw HTML is authoritative for image detection.
