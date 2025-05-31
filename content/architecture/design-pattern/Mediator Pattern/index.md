@@ -1,9 +1,8 @@
 ---
 title: "Mediator Pattern"
 date: 2020-10-12
-categories:
-  - design-pattern
-  - behavioral
+categories: ["Design Pattern"]
+tags: ["Architecture", "Design Pattern"]
 ---
 
 # Mediator Pattern

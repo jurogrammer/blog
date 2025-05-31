@@ -1,8 +1,8 @@
 ---
 title: "Template Pattern"
 date: 2020-10-18
-categories: ["Design Pattern", "Behavioral Design Pattern"]
-tags: ["design-pattern", "Pattern", "Behavioral", "Template", "template-pattern"]
+categories: ["Design Pattern"]
+tags: [Design Pattern]
 ---
 
 # References

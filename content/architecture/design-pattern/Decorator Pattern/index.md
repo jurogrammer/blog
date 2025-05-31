@@ -2,7 +2,7 @@
 title: "Decorator Pattern"
 date: 2020-10-12
 categories: ["Design Pattern", "Structural Design Pattern"]
-tags: ["design-pattern", "Pattern", "Decorator", "decorator-pattern", "데코레이터"]
+tags: [Design Pattern]
 ---
 
 # References

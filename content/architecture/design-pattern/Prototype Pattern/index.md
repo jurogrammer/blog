@@ -3,7 +3,7 @@ title: "Prototype Pattern"
 date: 2020-10-11
 draft: false
 categories: ["architecture"]
-tags: ["architecture", "DesignPattern"]
+tags: ["architecture", "Design Pattern"]
 ---
 ## What is the Prototype Pattern?
 

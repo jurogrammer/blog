@@ -2,7 +2,7 @@
 title: "Composite Pattern"
 date: 2020-10-12
 categories: ["Design Pattern", "Structural Design Pattern"]
-tags: ["design-pattern", "Pattern", "Composite", "composite-pattern", "컴포지트"]
+tags: [Design Pattern]
 ---
 
 # References

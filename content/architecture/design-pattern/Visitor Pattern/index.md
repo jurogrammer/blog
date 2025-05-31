@@ -1,8 +1,8 @@
 ---
 title: "Visitor Pattern"
 date: 2020-10-18
-categories: ["Design Pattern", "Behavioral Design Pattern"]
-tags: ["design-pattern", "Pattern", "Behavioral", "Visitor", "visitor-pattern"]
+categories: ["Design Pattern"]
+tags: ["Architecture", "Design Pattern"]
 ---
 
 # References

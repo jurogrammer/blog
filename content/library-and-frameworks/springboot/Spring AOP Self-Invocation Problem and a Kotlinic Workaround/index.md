@@ -2,7 +2,7 @@
 title: "Spring AOP Self-Invocation Problem and a Kotlinic Workaround"
 date: 2024-05-27
 draft: false
-categories: ["Spring", "Kotlin"]
+categories: ["library-and-frameworks"]
 tags: ["Spring", "AOP", "Kotlin"]
 ---
 

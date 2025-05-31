@@ -1,9 +1,8 @@
 ---
 title: "Observer Pattern"
 date: 2020-10-18
-categories:
-  - design-pattern
-  - behavioral
+categories: ["Design Pattern"]
+tags: ["Architecture", "Design Pattern"]
 ---
 
 # Observer Pattern

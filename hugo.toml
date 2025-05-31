@@ -45,6 +45,12 @@ url = "/architecture"
 weight = 1
 
 [[menu.main]]
+identifier = "CS"
+name = "CS"
+url = "/cs"
+weight = 1
+
+[[menu.main]]
 identifier = "General"
 name = "General"
 url = "/general"

@@ -2,7 +2,7 @@
 title: "Single Responsibility Principle"
 date: 2020-10-11
 categories: ["Architecture"]
-tags: ["Architecture", "OOP", "SRP", "solid"]
+tags: ["Architecture", "OOP"]
 ---
 
 # Single Responsibility Principle

@@ -2,7 +2,7 @@
 title: "Bridge Pattern"
 date: 2020-10-11
 categories: ["Design Pattern", "Structural Design Pattern"]
-tags: ["design-pattern", "Pattern", "Bridge", "bridge-pattern", "브릿지"]
+tags: [Design Pattern]
 ---
 
 # References

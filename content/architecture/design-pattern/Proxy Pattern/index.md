@@ -2,7 +2,7 @@
 title: "Proxy Pattern"
 date: 2020-10-12
 categories: ["Architecture"]
-tags: ["DesignPattern"]
+tags: ["Architecture", "Design Pattern"]
 ---
 
 # References

@@ -2,7 +2,7 @@
 title: "Builder Pattern"
 date: 2020-10-11
 categories: ["architecture"]
-tags: ["architecture", "DesignPattern"]
+tags: ["architecture", "Design Pattern"]
 draft: false
 ---
 

@@ -1,9 +1,8 @@
 ---
 title: "Strategy Pattern"
 date: 2020-10-18
-categories:
-  - design-pattern
-  - behavioral
+categories: ["Design Pattern"]
+tags: ["Architecture", "Design Pattern"]
 ---
 
 # Strategy Pattern

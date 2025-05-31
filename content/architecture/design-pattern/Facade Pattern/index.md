@@ -1,8 +1,8 @@
 ---
 title: "Facade Pattern"
 date: 2020-10-12
-categories: ["Design Pattern", "Structural Design Pattern"]
-tags: ["design-pattern", "Pattern", "Facade", "facade-pattern", "파사드"]
+categories: ["Design Pattern"]
+tags: [Design Pattern]
 ---
 
 # References

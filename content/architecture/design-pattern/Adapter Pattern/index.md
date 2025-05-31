@@ -1,8 +1,8 @@
 ---
 title: "Adapter Pattern"
 date: 2020-10-11
-categories: ["Design Pattern", "Structural Design Pattern"]
-tags: ["design-pattern", "Pattern", "Adapter", "adapter-pattern", "어댑터"]
+categories: ["Design Pattern"]
+tags: ["architecture", "Design Pattern"]
 ---
 
 # Source

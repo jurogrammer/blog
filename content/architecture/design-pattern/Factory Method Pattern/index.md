@@ -3,7 +3,7 @@ title: "Factory Method Pattern"
 date: 2020-10-11
 draft: false
 categories: ["architecture"]
-tags: ["architecture", "DesignPattern"]
+tags: ["architecture", "Design Pattern"]
 ---
 
 # References
