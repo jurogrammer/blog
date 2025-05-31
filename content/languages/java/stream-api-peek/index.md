@@ -1,13 +1,10 @@
 ---
 title: "Stream API - peek"
 date: 2022-12-13T01:11:00+09:00
-categories: ["java"]
-tags: ["Stream API", "peek", "Java"]
+categories: ["Languages"]
+tags: ["Languages", "Java"]
 ---
-
-# Stream API
-
-## peek?
+# peek?
 
 Why does the documentation recommend using **Stream.peek mainly for debugging**? Let's find out.
 
@@ -45,7 +42,7 @@ Based on this, let's look at how peek is described in the Java docs.
 
 [Documentation link](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#peek-java.util.function.Consumer-:~:text=the%20new%20stream-,peek,-Stream%3CT)
 
-<img src="img1.png" width="400px">
+![img](img1.png)
 
 Here are two things to note:
 
@@ -94,7 +91,7 @@ public static class Wrapper {
 
 **Result**
 
-<img src="img2.png" width="400px">
+<img src="img2.png" width="1000px">
 
 the value of the elements in the origin list (the data source) was changed.
 
@@ -117,7 +114,7 @@ void test2() {
 
 **Result**
 
-<img src="img3.png" width="400px">
+<img src="img3.png" width="1000px">
 
 There is no output. In Java 9, due to optimization of the terminal operation count, the function passed to peek is not executed.
 
@@ -143,7 +140,7 @@ void test3() {
 
 **Result**
 
-<img src="img4.png" width="400px">
+<img src="img4.png" width="1000px">
 
 Since filter affects the result of count, peek is evaluated in this case.
 
