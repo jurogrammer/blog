@@ -32,11 +32,11 @@ So, to simplify the problem, I tried to answer the most basic question:
 
 You can check the solution to this concern at the following URL:
 
-[The process from keyboard input to console output](https://jurogrammer.tistory.com/155)
+[The process from keyboard input to console output](/blog/general/keyboard-to-console/)
 
 Through this, I learned about the concepts of redirection and pipeline, and dug deeper into redirection.
 
-[Redirection](https://jurogrammer.tistory.com/156)
+[Redirection](/blog/general/exception-handling-redirection/)
 
 By exploring these two topics, it became clear. In AWS, standard output is redirected to .log, and standard error to err.log. Also, even if you leave a log at the error level in logback, it is output to standard output.
 
@@ -49,10 +49,10 @@ Through concern 1, I was able to **think** about log output strategies.
 
 Next, let's look at how to handle exceptions in Java. Since I use Spring Boot in practice, I'll explain based on Java. The skills covered in this topic may be Java-specific, but I think the essence of the concerns and solutions is not different.
 
-[Exception handling tools supported in Java](https://jurogrammer.tistory.com/157)
+[Exception handling tools supported in Java](/blog/general/exception-handling-java-theory/)
 
 Next, based on the knowledge of exception handling, I will try to refactor code similar to what I wrote in practice.
 
 ## 3. Better code
 
-[Let's refactor the code.](https://jurogrammer.tistory.com/158) 
+[Let's refactor the code.](/blog/general/exception-handling-java-code/) 
