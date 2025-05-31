@@ -39,3 +39,9 @@ Download each image and save it in the same folder as the translated post.
 Insert each image into the translated markdown using <img src="..." width="400px"> with a newline after each image.
 Do not rely on rendered, summarized, or visually parsed content—only the raw HTML is authoritative for image detection.
 If you cannot fetch the HTML directly, request the user to provide it or to run a command like curl <url> | grep '<img src=' and share the output.
+
+Image Naming Rule:
+- When downloading images for a post, always save them as img1.png, img2.png, ..., in the order they appear in the content.
+- Do not use the original filename or allow .1, .2, etc. suffixes.
+- All image references in the markdown must match this naming scheme.
+- Automate this process in the translation workflow.
