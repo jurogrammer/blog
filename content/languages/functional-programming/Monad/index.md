@@ -3,6 +3,7 @@ title: "Is This a Monad?"
 date: 2023-06-25T19:37:00+09:00
 categories: ["Languages"]
 tags: ["Languages", "FunctionalProgramming", "Monad", "Optional"]
+math: true
 ---
 
 # References
