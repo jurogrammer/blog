@@ -43,3 +43,5 @@ Download each image and save it in the same folder as the translated post.
 Insert each image into the translated markdown using markdown image tag (ex ![img1](img1.png))
 Do not rely on rendered, summarized, or visually parsed content—only the raw HTML is authoritative for image detection.
 If you cannot fetch the HTML directly, request the user to provide it or to run a command like curl <url> | grep '<img src=' and share the output.
+
+Don't ask me! just do all things.

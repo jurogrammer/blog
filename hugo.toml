@@ -1,6 +1,6 @@
 baseURL = 'https://jurogrammer.github.io/blog/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Jurogrammer blog'
 theme = 'PaperMod'
       
 [params.assets]
