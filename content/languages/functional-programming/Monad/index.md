@@ -42,13 +42,13 @@ If you express the verb "run" in the past tense, it becomes "ran."
 For issue number 5, please name the branch as follows: feature/issue-5
 
 $$
-issue \#5 \overset{branch}{\longrightarrow} feature/issue-5
+issue \\#5 \overset{branch}{\longrightarrow} feature/issue-5
 $$
 
 For issue number 10, like this: feature/issue-10
 
 $$
-issue \#10 \overset{branch}{\longrightarrow} feature/issue-10
+issue \\#10 \overset{branch}{\longrightarrow} feature/issue-10
 $$
 
 Does it look like a function to you? A specific rule or operation maps x to y. The way of expressing branch names in English is very similar to the mathematical notation for functions.
