@@ -53,6 +53,13 @@ url = "/cs"
 weight = 1
 
 [[menu.main]]
+identifier = "Testing"
+name = "Testing"
+url = "/testing"
+weight = 1
+
+
+[[menu.main]]
 identifier = "General"
 name = "General"
 url = "/general"
