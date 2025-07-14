@@ -25,6 +25,7 @@ theme = 'PaperMod'
 
 [params]
   math = true
+  mainSections = ["languages", "library-and-frameworks", "testing", "general", "cs", "architecture"]
 
 [menu]
 
