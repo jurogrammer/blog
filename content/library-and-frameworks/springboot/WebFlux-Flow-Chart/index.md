@@ -101,8 +101,6 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
-# WebFlux Flow Chart
-
 This post explains the flow of WebFlux request processing through detailed sequence diagrams.
 
 ## 1. Request (Before Receive Request Body)
