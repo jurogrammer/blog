@@ -1,0 +1,41 @@
+@startuml
+actor Client
+box "Netty" #F8CECC
+participant "SocketChannel(Client)" as SocketChannel
+participant EventLoop_N
+end box
+box "ReactorNetty" #D5E8D4
+participant HttpServerOperations
+end box
+box "WebFlux" #FFF2CC
+participant DispatcherHandler
+participant RequestMappingHandlerAdapter
+participant ResponseBodyResultHandler
+participant EncoderHttpMessageWriter
+participant Jackson2JsonEncoder
+participant ReactorServerHttpResponse
+end box
+skinparam noteFontSize 8
+
+
+RequestMappingHandlerAdapter -> DispatcherHandler: return HandlerResult
+DispatcherHandler -> ResponseBodyResultHandler: handleResult(ServerWebExchange, HandlerResult)
+ResponseBodyResultHandler -> EncoderHttpMessageWriter: write(Publisher, ...)
+note left EncoderHttpMessageWriter
+- Publisher = HandlerResult.getReturnValue()
+end note
+EncoderHttpMessageWriter -> Jackson2JsonEncoder: encode(Publisher, ...)
+Jackson2JsonEncoder -> EncoderHttpMessageWriter: return Flux<DataBuffer>
+EncoderHttpMessageWriter -> ReactorServerHttpResponse: writeWith(Publisher<DataBuffer>)
+note left ReactorServerHttpResponse
+- doCommit  
+  - writeWithInternal
+end note
+ReactorServerHttpResponse -> HttpServerOperations: send(ByteBuf)
+HttpServerOperations -> HttpServerOperations: create DefaultFullHttpResponse
+HttpServerOperations -> HttpServerOperations: onComplete
+HttpServerOperations -> HttpServerOperations: onOutboundComplete
+HttpServerOperations -> SocketChannel: writeAndFlush(DefaultFullHttpResponse)
+SocketChannel -> Client: HTTP response
+
+@enduml

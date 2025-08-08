@@ -1,0 +1,66 @@
+@startuml
+actor Client
+box "Netty" #F8CECC
+participant "SocketChannel(Client)" as SocketChannel
+participant EventLoop_N
+end box
+box "ReactorNetty" #D5E8D4
+participant HttpServerCodec
+participant HttpTrafficHandler
+participant ChannelOperationsHandler
+participant HttpServerOperations
+participant "ConnectionObserver(HttpServerHandle)" as ConnectionObserver
+end box
+box "WebFlux" #FFF2CC
+participant ReactorHttpHandlerAdapter
+skinparam noteFontSize 8
+
+
+Client -> SocketChannel: write request line
+EventLoop_N -> SocketChannel: check ready keys (READ)
+SocketChannel -> EventLoop_N: read request line
+EventLoop_N -> HttpServerCodec: channelRead(ByteBuf)
+'note left HttpServerCodec
+'Call flow:
+'channel.unsafe.read(msg)
+'-> pipeline.fireChannelRead(msg)
+'-> HttpServerCodec.channelRead(msg)
+'end note
+HttpServerCodec -> HttpTrafficHandler: channelRead(DefaultHttpRequest)
+note left HttpTrafficHandler
+- Create HttpServerOperations  
+  - Assign FluxReceive to inbound  
+- channel()  
+   .attr(ReactorNetty.CONNECTION)  
+   .set(HttpServerOperations)
+end note
+HttpTrafficHandler -> ConnectionObserver: onStateChange(ops, CONFIGURED)
+HttpTrafficHandler -> ChannelOperationsHandler: channelRead(DefaultHttpRequest)
+note left ChannelOperationsHandler
+- Retrieves HttpServerOperations from the channel attribute  
+  set by HttpTrafficHandler
+end note
+ChannelOperationsHandler -> HttpServerOperations: onInboundNext(ctx, DefaultHttpRequest)
+note left HttpServerOperations
+'- handleDefaultHttpRequest(ctx)
+end note
+HttpServerOperations -> ConnectionObserver: onStateChange(this, REQUEST_RECEIVED)
+ConnectionObserver -> ReactorHttpHandlerAdapter: apply(ops, ops)
+note left ConnectionObserver
+- Starting point of the entire WebFlux flow (assemblyTime)  
+- ops: HttpServerOperations
+end note
+ReactorHttpHandlerAdapter -> ConnectionObserver: return WebFlux pipeline
+ConnectionObserver -> ConnectionObserver: subscribe()
+note left
+- subscriptionTime && executionTime
+end note
+
+ConnectionObserver -->> ReactorHttpHandlerAdapter: apply(HttpServerRequest, HttpServerResponse)
+note left ReactorHttpHandlerAdapter
+- Entry point from Reactor into WebFlux  
+- Adapts Reactor request/response to be executed  
+  in WebFlux HttpHandler
+end note
+
+@enduml

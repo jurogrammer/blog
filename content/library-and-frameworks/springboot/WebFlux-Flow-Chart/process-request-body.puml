@@ -1,0 +1,76 @@
+@startuml
+actor Client
+box "Netty" #F8CECC
+participant "ConnectionObserver(HttpServerHandle)" as ConnectionObserver
+end box
+box "WebFlux" #FFF2CC
+participant ReactorHttpHandlerAdapter
+participant HttpWebHandlerAdapter
+participant ExceptionHandlingWebHandler
+participant FilteringWebHandler
+participant DispatcherHandler
+participant RequestMappingHandlerMapping
+participant RequestMappingHandlerAdapter
+participant ControllerMethodResolver
+participant InvocableHandlerMethod
+participant RequestBodyMethodArgumentResolver
+participant DecoderHttpMessageReader
+participant ReactorServerHttpRequest
+participant Jackson2JsonDecoder
+participant DataBufferUtils
+participant FluxReceive
+end box
+skinparam noteFontSize 8
+
+
+ConnectionObserver -->> ReactorHttpHandlerAdapter: apply(HttpServerRequest, HttpServerResponse)
+note left ReactorHttpHandlerAdapter
+- Entry point from Reactor into WebFlux  
+- Adapts Reactor request/response so that they can be executed in WebFlux's HttpHandler
+end note
+ReactorHttpHandlerAdapter -> HttpWebHandlerAdapter: handle(ReactorServerHttpRequest, ReactorServerHttpResponse)
+
+note left HttpWebHandlerAdapter
+- Creates a new ServerWebExchange(ServerHttpRequest, ServerHttpResponse)  
+- Converts HttpHandler (low-level) → WebHandler (high-level)  
+  - Application logic is executed within the WebHandler
+end note
+HttpWebHandlerAdapter -> ExceptionHandlingWebHandler: handle(ServerWebExchange)
+note left ExceptionHandlingWebHandler
+- Delegates to the next WebHandler while managing exceptions
+end note
+ExceptionHandlingWebHandler -> FilteringWebHandler: handle(ServerWebExchange)
+note left FilteringWebHandler
+- WebHandler that executes WebFilters  
+- Executes registered WebFilters at this stage
+end note
+FilteringWebHandler -> DispatcherHandler: handle(ServerWebExchange)
+DispatcherHandler -> RequestMappingHandlerMapping: getHandler(ServerWebExchange)
+RequestMappingHandlerMapping -> DispatcherHandler: return HandlerMethod
+note left DispatcherHandler
+- Retrieves HandlerMethod when @RequestMapping is declared  
+- Executes the HandlerMethod using RequestMappingHandlerAdapter
+end note
+DispatcherHandler -> RequestMappingHandlerAdapter: handle(ServerWebExchange, HandlerMethod)
+RequestMappingHandlerAdapter -> ControllerMethodResolver: getRequestMappingMethod(HandlerMethod)
+ControllerMethodResolver -> RequestMappingHandlerAdapter: return InvocableHandlerMethod
+RequestMappingHandlerAdapter -> InvocableHandlerMethod: invoke(ServerWebExchange, InitBinderBindingContext)
+InvocableHandlerMethod -> RequestBodyMethodArgumentResolver: resolveArgument(parameter, bindingContext, exchange)
+RequestBodyMethodArgumentResolver -> DecoderHttpMessageReader: readMono
+DecoderHttpMessageReader -> ReactorServerHttpRequest: getBody()
+ReactorServerHttpRequest <-> FluxReceive: request data
+ReactorServerHttpRequest -> DecoderHttpMessageReader: return Flux<DataBuffer>
+DecoderHttpMessageReader -> Jackson2JsonDecoder: decodeToMono(<font color="red">Flux<DataBuffer></font>, ...)
+Jackson2JsonDecoder -> DataBufferUtils: join(Publisher<DataBuffer>)
+note left
+<b>Waits until ReactorServerHttpRequest.getBody() is fully read</b>  
+- ChannelOperations.FluxReceive emits data via getBody()  
+- DataBufferUtils.join() completes when FluxReceive finishes emitting all data  
+
+<b>Reference</b>  
+DataBufferUtils.join(buffers)  
+ - .<b>collect</b>(() -> new LimitedDataBufferList(maxByteCount), LimitedDataBufferList::add)
+end note
+DataBufferUtils -> FluxReceive: waits for onNext() signals
+
+@enduml

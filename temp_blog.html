@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="ko">
+
+                                                                                <head>
+                <script type="text/javascript">if (!window.T) { window.T = {} }
+window.T.config = {"TOP_SSL_URL":"https://www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"","NEXT_PAGE":"","BLOG":{"id":3684506,"name":"jurogrammer","title":"개발자 노트","isDormancy":false,"nickName":"jurogrammer","status":"open","profileStatus":"normal"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https://www.tistory.com/auth/login/?redirectUrl=https://jurogrammer.tistory.com/106","DEFAULT_URL":"https://jurogrammer.tistory.com","USER":{"name":null,"homepage":null,"id":0,"profileImage":null},"SUBSCRIPTION":{"status":"none","isConnected":false,"isPending":false,"isWait":false,"isProcessing":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"IS_SUPPORT":false,"IS_SCRAPABLE":false,"TOP_URL":"http://www.tistory.com","JOIN_URL":"https://www.tistory.com/member/join","PHASE":"prod","ROLE_GROUP":"visitor"};
+window.T.entryInfo = {"entryId":106,"isAuthor":false,"categoryId":950558,"categoryLabel":"디자인패턴/Creational Design Pattern"};
+window.appInfo = {"domain":"tistory.com","topUrl":"https://www.tistory.com","loginUrl":"https://www.tistory.com/auth/login","logoutUrl":"https://www.tistory.com/auth/logout"};
+window.initData = {};
+
+window.TistoryBlog = {
+    basePath: "",
+    url: "https://jurogrammer.tistory.com",
+    tistoryUrl: "https://jurogrammer.tistory.com",
+    manageUrl: "https://jurogrammer.tistory.com/manage",
+    token: "BUeB8T8CcOGA57MzIExser2wL/zbbdladBMnnu++aXa6MEfA4bpBIlZ02zeM19Fa"
+};
+var servicePath = "";
+var blogURL = "";</script>
+
+                
+                
+                
+                        <!-- BusinessLicenseInfo - START -->
+        
+            <link href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/plugin/BusinessLicenseInfo/style.css" rel="stylesheet" type="text/css"/>
+
+            <script>function switchFold(entryId) {
+    var businessLayer = document.getElementById("businessInfoLayer_" + entryId);
+
+    if (businessLayer) {
+        if (businessLayer.className.indexOf("unfold_license") > 0) {
+            businessLayer.className = "business_license_layer";
+        } else {
+            businessLayer.className = "business_license_layer unfold_license";
+        }
+    }
+}
+</script>
+
+        
+        <!-- BusinessLicenseInfo - END -->
+        <!-- DaumShow - START -->
+        <style type="text/css">#daumSearchBox {
+    height: 21px;
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+    margin: 5px auto;
+    padding: 0;
+}
+
+#daumSearchBox input {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#daumSearchBox #daumLogo {
+    width: 34px;
+    height: 21px;
+    float: left;
+    margin-right: 5px;
+    background-image: url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+}
+
+#daumSearchBox #show_q {
+    background-color: transparent;
+    border: none;
+    font: 12px Gulim, Sans-serif;
+    color: #555;
+    margin-top: 4px;
+    margin-right: 15px;
+    float: left;
+}
+
+#daumSearchBox #show_btn {
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+    width: 37px;
+    height: 21px;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    text-indent: -1000em;
+}
+</style>
+
+        <!-- DaumShow - END -->
+
+<!-- System - START -->
+
+<!-- System - END -->
+
+        <!-- TistoryProfileLayer - START -->
+        <link href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/plugin/TistoryProfileLayer/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/plugin/TistoryProfileLayer/script.js"></script>
+
+        <!-- TistoryProfileLayer - END -->
+
+                
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//t1.daumcdn.net/tiara/js/v1/tiara.min.js"></script><meta name="referrer" content="always"/>
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338"/>
+<meta name="google-adsense-platform-domain" content="tistory.com"/>
+<meta name="google-adsense-account" content="ca-pub-3877954716170428"/>
+<meta name="description" content="출처 https://refactoring.guru/design-patterns/prototype 프로토타입 패턴이란? 생성 디자인 패턴 생성할 object의 클래스에 의존하지 않고 이미 생성된 object를 통해 동일한 object를 생성할 수 있는 디자인 패턴입니다. 프로토타입? 앞으로 설명드릴 프로토타입이란 용어와 일상생활에서 쓰이는 용어와 차이점이 있습니다. 제가 이 패턴을 처음 접했을 때 가장 헷갈려서 개념을 받아들이기 어려웠기 때문에 차이점을 먼저 짚어보겠습니다. 일상생활에서 쓰이는 프로토타입 용어 이 프로토타입은 대량생산 전 성능을 검증하고 개선하기 위해 핵심기능만 넣어서 제작한 모델을 프로토타입이라 부릅니다. 또는 게임의 본격적인 개발에 앞서 재미요소나 구현 가능성을 검증하기 위해 제작하는 .."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://jurogrammer.tistory.com/106"/>
+<meta property="og.article.author" content="jurogrammer"/>
+<meta property="og:site_name" content="개발자 노트"/>
+<meta property="og:title" content="Prototype Pattern"/>
+<meta name="by" content="jurogrammer"/>
+<meta property="og:description" content="출처 https://refactoring.guru/design-patterns/prototype 프로토타입 패턴이란? 생성 디자인 패턴 생성할 object의 클래스에 의존하지 않고 이미 생성된 object를 통해 동일한 object를 생성할 수 있는 디자인 패턴입니다. 프로토타입? 앞으로 설명드릴 프로토타입이란 용어와 일상생활에서 쓰이는 용어와 차이점이 있습니다. 제가 이 패턴을 처음 접했을 때 가장 헷갈려서 개념을 받아들이기 어려웠기 때문에 차이점을 먼저 짚어보겠습니다. 일상생활에서 쓰이는 프로토타입 용어 이 프로토타입은 대량생산 전 성능을 검증하고 개선하기 위해 핵심기능만 넣어서 제작한 모델을 프로토타입이라 부릅니다. 또는 게임의 본격적인 개발에 앞서 재미요소나 구현 가능성을 검증하기 위해 제작하는 .."/>
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fstatic%2Fimages%2FopenGraph%2Fopengraph.png"/>
+<meta property="article:section" content="'IT 인터넷'"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@TISTORY"/>
+<meta name="twitter:title" content="Prototype Pattern"/>
+<meta name="twitter:description" content="출처 https://refactoring.guru/design-patterns/prototype 프로토타입 패턴이란? 생성 디자인 패턴 생성할 object의 클래스에 의존하지 않고 이미 생성된 object를 통해 동일한 object를 생성할 수 있는 디자인 패턴입니다. 프로토타입? 앞으로 설명드릴 프로토타입이란 용어와 일상생활에서 쓰이는 용어와 차이점이 있습니다. 제가 이 패턴을 처음 접했을 때 가장 헷갈려서 개념을 받아들이기 어려웠기 때문에 차이점을 먼저 짚어보겠습니다. 일상생활에서 쓰이는 프로토타입 용어 이 프로토타입은 대량생산 전 성능을 검증하고 개선하기 위해 핵심기능만 넣어서 제작한 모델을 프로토타입이라 부릅니다. 또는 게임의 본격적인 개발에 앞서 재미요소나 구현 가능성을 검증하기 위해 제작하는 .."/>
+<meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fstatic%2Fimages%2FopenGraph%2Fopengraph.png"/>
+<meta content="https://jurogrammer.tistory.com/106" property="dg:plink" content="https://jurogrammer.tistory.com/106"/>
+<meta name="plink"/>
+<meta name="title" content="Prototype Pattern"/>
+<meta name="article:media_name" content="개발자 노트"/>
+<meta property="article:mobile_url" content="https://jurogrammer.tistory.com/m/106"/>
+<meta property="article:pc_url" content="https://jurogrammer.tistory.com/106"/>
+<meta property="article:mobile_view_url" content="https://jurogrammer.tistory.com/m/106"/>
+<meta property="article:pc_view_url" content="https://jurogrammer.tistory.com/106"/>
+<meta property="article:talk_channel_view_url" content="https://jurogrammer.tistory.com/m/106"/>
+<meta property="article:pc_service_home" content="https://www.tistory.com"/>
+<meta property="article:mobile_service_home" content="https://www.tistory.com/m"/>
+<meta property="article:txid" content="3684506_106"/>
+<meta property="article:published_time" content="2020-10-11T12:29:05+09:00"/>
+<meta property="og:regDate" content="20201011122905"/>
+<meta property="article:modified_time" content="2020-10-11T12:29:05+09:00"/>
+<script type="module" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/pc/dist/index.js" defer=""></script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/pc/dist/index-legacy.js" defer="" nomodule="true"></script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/pc/dist/polyfills-legacy.js" defer="" nomodule="true"></script>
+<link rel="icon" sizes="any" href="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico"/>
+<link rel="icon" type="image/svg+xml" href="https://t1.daumcdn.net/tistory_admin/top_v2/bi-tistory-favicon.svg"/>
+<link rel="apple-touch-icon" href="https://t1.daumcdn.net/tistory_admin/top_v2/tistory-apple-touch-favicon.png"/>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/www/style/font.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/style/content.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/pc/dist/index.css"/>
+<script type="text/javascript">(function() {
+    var tjQuery = jQuery.noConflict(true);
+    window.tjQuery = tjQuery;
+    window.orgjQuery = window.jQuery; window.jQuery = tjQuery;
+    window.jQuery = window.orgjQuery; delete window.orgjQuery;
+})()</script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/script/base.js"></script>
+<script type="text/javascript" src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+                
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<title>Prototype Pattern</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.css" integrity="sha512-utquZ+DZS3UMUcYAp8Hikmxnkbf/w/wfV56JBLzQBmVFMurUjEjfqElxVVVKy/yD+rZm83SWCAsO8GRR9AngFA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="alternate" type="application/rss+xml" title="개발자 노트" href="https://jurogrammer.tistory.com/rss" />
+
+	<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/3684506/skin/style.css?_version_=1687690594">
+	<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/3684506/skin/images/font.css?_version_=1687690594">
+	<style>
+		
+		.wrap_sub {
+			background-image: url('https://t1.daumcdn.net/tistory/0/Ray2/images/header_default.jpg');
+		}
+		
+	</style>
+
+	<!--[if lt IE 9]>
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<!--<![endif]-->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+ 
+
+                
+                
+                <style type="text/css">.another_category {
+    border: 1px solid #E5E5E5;
+    padding: 10px 10px 5px;
+    margin: 10px 0;
+    clear: both;
+}
+
+.another_category h4 {
+    font-size: 12px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #E5E5E5 !important;
+    padding: 2px 0 6px !important;
+}
+
+.another_category h4 a {
+    font-weight: bold !important;
+}
+
+.another_category table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+* html .another_category table {
+    width: auto !important;
+}
+
+*:first-child + html .another_category table {
+    width: auto !important;
+}
+
+.another_category th, .another_category td {
+    padding: 0 0 4px !important;
+}
+
+.another_category th {
+    text-align: left;
+    font-size: 12px !important;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.another_category td {
+    text-align: right;
+    width: 80px;
+    font-size: 11px;
+}
+
+.another_category th a {
+    font-weight: normal;
+    text-decoration: none;
+    border: none !important;
+}
+
+.another_category th a.current {
+    font-weight: bold;
+    text-decoration: none !important;
+    border-bottom: 1px solid !important;
+}
+
+.another_category th span {
+    font-weight: normal;
+    text-decoration: none;
+    font: 10px Tahoma, Sans-serif;
+    border: none !important;
+}
+
+.another_category_color_gray, .another_category_color_gray h4 {
+    border-color: #E5E5E5 !important;
+}
+
+.another_category_color_gray * {
+    color: #909090 !important;
+}
+
+.another_category_color_gray th a.current {
+    border-color: #909090 !important;
+}
+
+.another_category_color_gray h4, .another_category_color_gray h4 a {
+    color: #737373 !important;
+}
+
+.another_category_color_red, .another_category_color_red h4 {
+    border-color: #F6D4D3 !important;
+}
+
+.another_category_color_red * {
+    color: #E86869 !important;
+}
+
+.another_category_color_red th a.current {
+    border-color: #E86869 !important;
+}
+
+.another_category_color_red h4, .another_category_color_red h4 a {
+    color: #ED0908 !important;
+}
+
+.another_category_color_green, .another_category_color_green h4 {
+    border-color: #CCE7C8 !important;
+}
+
+.another_category_color_green * {
+    color: #64C05B !important;
+}
+
+.another_category_color_green th a.current {
+    border-color: #64C05B !important;
+}
+
+.another_category_color_green h4, .another_category_color_green h4 a {
+    color: #3EA731 !important;
+}
+
+.another_category_color_blue, .another_category_color_blue h4 {
+    border-color: #C8DAF2 !important;
+}
+
+.another_category_color_blue * {
+    color: #477FD6 !important;
+}
+
+.another_category_color_blue th a.current {
+    border-color: #477FD6 !important;
+}
+
+.another_category_color_blue h4, .another_category_color_blue h4 a {
+    color: #1960CA !important;
+}
+
+.another_category_color_violet, .another_category_color_violet h4 {
+    border-color: #E1CEEC !important;
+}
+
+.another_category_color_violet * {
+    color: #9D64C5 !important;
+}
+
+.another_category_color_violet th a.current {
+    border-color: #9D64C5 !important;
+}
+
+.another_category_color_violet h4, .another_category_color_violet h4 a {
+    color: #7E2CB5 !important;
+}
+</style>
+
+                
+                <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/style/revenue.css"/>
+<link rel="canonical" href="https://jurogrammer.tistory.com/106"/>
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https://jurogrammer.tistory.com/106","name":null},"url":"https://jurogrammer.tistory.com/106","headline":"Prototype Pattern","description":"출처 https://refactoring.guru/design-patterns/prototype 프로토타입 패턴이란? 생성 디자인 패턴 생성할 object의 클래스에 의존하지 않고 이미 생성된 object를 통해 동일한 object를 생성할 수 있는 디자인 패턴입니다. 프로토타입? 앞으로 설명드릴 프로토타입이란 용어와 일상생활에서 쓰이는 용어와 차이점이 있습니다. 제가 이 패턴을 처음 접했을 때 가장 헷갈려서 개념을 받아들이기 어려웠기 때문에 차이점을 먼저 짚어보겠습니다. 일상생활에서 쓰이는 프로토타입 용어 이 프로토타입은 대량생산 전 성능을 검증하고 개선하기 위해 핵심기능만 넣어서 제작한 모델을 프로토타입이라 부릅니다. 또는 게임의 본격적인 개발에 앞서 재미요소나 구현 가능성을 검증하기 위해 제작하는 ..","author":{"@type":"Person","name":"jurogrammer","logo":null},"image":{"@type":"ImageObject","url":"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fstatic%2Fimages%2FopenGraph%2Fopengraph.png","width":"800px","height":"800px"},"datePublished":"2020-10-11T12:29:05+09:00","dateModified":"2020-10-11T12:29:05+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png","width":"800px","height":"800px"}}}
+</script>
+<!-- END STRUCTURED_DATA -->
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/style/dialog.css"/>
+<link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/tistory_admin/www/style/top/font.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/style/postBtn.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/style/tistory.css"/>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/script/common.js"></script>
+
+                
+                </head>
+
+                                                <body id="tt-body-page">
+                
+                
+                
+
+
+	<div id="dkIndex">
+		<!--웹접근성용 바로가기 링크 모음-->
+		<a href="#dkBody">본문 바로가기</a>
+	</div>
+	<div id="dkWrap" class="wrap_skin">
+		<!-- 카테고리버튼 클릭시 'navi_on' 클래스 부여 -->
+		<div id="dkHead" role="banner" class="area_head">
+			<h1 class="screen_out">개발자 노트</h1>
+			<button type="button" class="btn_cate">
+				<span class="ico_skin ico_cate">카테고리</span>
+			</button>
+			<div class="area_search ">
+				<button type="button" class="btn_search">
+					<span class="ico_skin ico_search">검색하기</span>
+				</button>
+				
+					<form action="#" method="get" class="frm_search box_search" onsubmit="try {
+    window.location.href = '/search' + '/' + looseURIEncode(document.getElementsByName('search')[0].value);
+    document.getElementsByName('search')[0].value = '';
+    return false;
+} catch (e) {}">
+						<fieldset>
+							<legend class="screen_out">검색하기</legend>
+							<label for="search" class="lab_search screen_out">Search</label>
+							<input type="text" name="search" id="search" class="tf_search" placeholder="Search" value="" data-value="">
+							<span class="ico_skin ico_search"></span>
+						</fieldset>
+					</form>
+				
+			</div>
+			<div class="area_profile">
+				<div class="tit_post">
+					<a href="/" class="link_post">개발자 노트</a>
+				</div>
+				<span class="thumb_profile">
+                <img src="https://t1.daumcdn.net/tistory_admin/static/manage/images/r3/default_L.png" class="img_profile" alt="프로필사진">
+            </span>
+				<span class="txt_profile">jurogrammer</span>
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="dkContent" class="cont_skin" role="main">
+			<div id="cMain">
+				<div id="mFeature" class="wrap_sub">
+					<div class="cont_sub">
+						<div class="inner_sub">
+							<div class="area_sub">
+								<div role="navigation" class="area_navi">
+									<ul class="tt_category"><li class=""><a href="/category" class="link_tit"> 분류 전체보기 <span class="c_cnt">(177)</span> </a>
+  <ul class="category_list"><li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EC%96%B8%EC%96%B4" class="link_item"> 컴퓨터 언어 <span class="c_cnt">(31)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EC%96%B8%EC%96%B4/Java" class="link_sub_item"> Java <span class="c_cnt">(12)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EC%96%B8%EC%96%B4/Python" class="link_sub_item"> Python <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EC%96%B8%EC%96%B4/C" class="link_sub_item"> C <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EC%96%B8%EC%96%B4/JavaScript" class="link_sub_item"> JavaScript <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EC%96%B8%EC%96%B4/Ruby" class="link_sub_item"> Ruby <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EC%96%B8%EC%96%B4/%ED%95%A8%EC%88%98%ED%98%95%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D" class="link_sub_item"> 함수형 프로그래밍 <span class="c_cnt">(13)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EC%96%B8%EC%96%B4/Kotlin" class="link_sub_item"> Kotlin <span class="c_cnt">(1)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99%20%EA%B8%B0%EC%B4%88" class="link_item"> 컴퓨터과학 기초 <span class="c_cnt">(22)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99%20%EA%B8%B0%EC%B4%88/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C" class="link_sub_item"> 운영체제 <span class="c_cnt">(6)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99%20%EA%B8%B0%EC%B4%88/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" class="link_sub_item"> 알고리즘 <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99%20%EA%B8%B0%EC%B4%88/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" class="link_sub_item"> 네트워크 <span class="c_cnt">(13)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99%20%EA%B8%B0%EC%B4%88/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EA%B5%AC%EC%A1%B0" class="link_sub_item"> 컴퓨터 구조 <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="/category/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99%20%EA%B8%B0%EC%B4%88/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EA%B3%B5%ED%95%99" class="link_sub_item"> 소프트웨어공학 <span class="c_cnt">(0)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4" class="link_item"> 알고리즘 문제 풀이 <span class="c_cnt">(25)</span> </a></li>
+<li class=""><a href="/category/Web" class="link_item"> Web <span class="c_cnt">(31)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/Web/Rails" class="link_sub_item"> Rails <span class="c_cnt">(1)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9D%B8%20IT%EC%A3%BC%EC%A0%9C" class="link_item"> 일반적인 IT주제 <span class="c_cnt">(5)</span> </a></li>
+<li class=""><a href="/category/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8" class="link_item"> 토이프로젝트 <span class="c_cnt">(16)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%84%9C%EB%B2%84%20%ED%8F%B4%EB%8D%94%20%EB%8F%99%EA%B8%B0%ED%99%94" class="link_sub_item"> 클라이언트-서버 폴더 동기화 <span class="c_cnt">(12)</span> </a></li>
+<li class=""><a href="/category/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20%28feat.%20rails%29" class="link_sub_item"> 게시판 만들기 (feat. rails) <span class="c_cnt">(2)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83" class="link_item"> 이것저것 <span class="c_cnt">(11)</span> </a></li>
+<li class=""><a href="/category/%ED%9A%8C%EA%B3%A0" class="link_item"> 회고 <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="/category/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%205%EC%9B%90%EC%B9%99" class="link_item"> 객체지향 5원칙 <span class="c_cnt">(6)</span> </a></li>
+<li class=""><a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4" class="link_item"> 디자인패턴 <span class="c_cnt">(25)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/Creational%20Design%20Pattern" class="link_sub_item"> Creational Design Pattern <span class="c_cnt">(5)</span> </a></li>
+<li class=""><a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/Structural%20Design%20Pattern" class="link_sub_item"> Structural Design Pattern <span class="c_cnt">(8)</span> </a></li>
+<li class=""><a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/Behavioral%20Design%20Pattern" class="link_sub_item"> Behavioral Design Pattern <span class="c_cnt">(11)</span> </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+									<a href="https://jurogrammer.tistory.com/guestbook" class="link_guestbook">Guestbook</a>
+								</div>
+								<div class="wrap_etc">
+									<div class="col_aside left_side">
+										                        
+												<!-- 공지사항 -->
+												
+													<div class="box_aside">
+														<strong class="tit_aside">Notice</strong>
+														<ul class="list_board">
+															
+																<li><a href="/notice/55" class="link_board">운영 중인 사이트</a></li>
+															
+														</ul>
+													</div>
+												
+											
+												<!-- 최근에 올라온 글 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Recent Posts</strong>
+													<ul class="list_board">
+														
+															<li><a href="/189" class="link_board">코틀린에서 자기 참조를 우회하는 방법 (feat.⋯</a></li>
+														
+															<li><a href="/188" class="link_board">이게 모나드인가?</a></li>
+														
+															<li><a href="/182" class="link_board">stream api - peek</a></li>
+														
+															<li><a href="/181" class="link_board">Lambda Expression과 Method r⋯</a></li>
+														
+													</ul>
+												</div>
+											
+												<!-- 최근에 달린 댓글 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Recent Comments</strong>
+													<ul class="list_board">
+														
+															<li><a href="/189#comment22852378" class="link_board">명쾌한 설명 덕분에 이해가 쉬웠어요! 😊 저희 블로그에⋯</a></li>
+														
+															<li><a href="/170#comment22308550" class="link_board">실제 데이터 갭쳐와 자세한 설명으로 이해가 잘 되네요.⋯</a></li>
+														
+															<li><a href="/150#comment20135293" class="link_board">그렇다면
+소켓을 구분하는 식별자, 소켓에 할당된 포트번⋯</a></li>
+														
+															<li><a href="/150#comment19287372" class="link_board">네 맞습니다.
+서버에는 서버소켓, 클라인트 소켓이 생⋯</a></li>
+														
+													</ul>
+												</div>
+											
+												<!-- 링크 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Link</strong>
+													<ul class="list_board">
+														
+															<li><a href="https://github.com/jurogrammer/" class="link_board" target="_blank">깃허브</a></li>
+														
+															<li><a href="https://blog.naver.com/study_ju/" class="link_board" target="_blank">이전 사용했던 블로그</a></li>
+														
+													</ul>
+												</div>
+											
+									</div>
+
+
+									<div class="col_aside right_side">
+										
+												<!-- 달력 -->
+												<div class="box_aside box_calendar">
+													<table class="tt-calendar" cellpadding="0" cellspacing="1" style="width: 100%; table-layout: fixed">
+  <caption class="cal_month"><a href="/archive/202507" title="1개월 앞의 달력을 보여줍니다.">«</a> &nbsp; <a href="/archive/202508" title="현재 달의 달력을 보여줍니다.">2025/08</a> &nbsp; <a href="/archive/202509" title="1개월 뒤의 달력을 보여줍니다.">»</a></caption>
+  <thead>
+    <tr>
+      <th class="cal_week2">일</th>
+      <th class="cal_week1">월</th>
+      <th class="cal_week1">화</th>
+      <th class="cal_week1">수</th>
+      <th class="cal_week1">목</th>
+      <th class="cal_week1">금</th>
+      <th class="cal_week1">토</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="cal_week cal_current_week">
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day cal_day3">1</td>
+      <td class="cal_day cal_day3">2</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">3</td>
+      <td class="cal_day cal_day3">4</td>
+      <td class="cal_day cal_day3">5</td>
+      <td class="cal_day cal_day3">6</td>
+      <td class="cal_day cal_day3">7</td>
+      <td class="cal_day cal_day4">8</td>
+      <td class="cal_day cal_day3">9</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">10</td>
+      <td class="cal_day cal_day3">11</td>
+      <td class="cal_day cal_day3">12</td>
+      <td class="cal_day cal_day3">13</td>
+      <td class="cal_day cal_day3">14</td>
+      <td class="cal_day cal_day3">15</td>
+      <td class="cal_day cal_day3">16</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">17</td>
+      <td class="cal_day cal_day3">18</td>
+      <td class="cal_day cal_day3">19</td>
+      <td class="cal_day cal_day3">20</td>
+      <td class="cal_day cal_day3">21</td>
+      <td class="cal_day cal_day3">22</td>
+      <td class="cal_day cal_day3">23</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">24</td>
+      <td class="cal_day cal_day3">25</td>
+      <td class="cal_day cal_day3">26</td>
+      <td class="cal_day cal_day3">27</td>
+      <td class="cal_day cal_day3">28</td>
+      <td class="cal_day cal_day3">29</td>
+      <td class="cal_day cal_day3">30</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">31</td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+    </tr>
+  </tbody>
+</table>
+												</div>
+											
+												<!-- 태그 클라우드 -->
+												<div class="box_aside box_tag">
+													<strong class="tit_aside">Tags</strong>
+													<ul class="list_tag">
+														
+															<li><a href="/tag/%ED%8C%8C%EC%9D%B4%EC%8D%AC" class="link_tag cloud3">파이썬</a></li>
+														
+															<li><a href="/tag/%EC%9E%90%EB%B0%94" class="link_tag cloud4">자바</a></li>
+														
+															<li><a href="/tag/functional%20programming" class="link_tag cloud4">functional programming</a></li>
+														
+															<li><a href="/tag/javscript" class="link_tag cloud4">javscript</a></li>
+														
+															<li><a href="/tag/exception" class="link_tag cloud4">exception</a></li>
+														
+															<li><a href="/tag/lambda%20calculus" class="link_tag cloud4">lambda calculus</a></li>
+														
+															<li><a href="/tag/%EB%B0%B1%EC%A4%80" class="link_tag cloud4">백준</a></li>
+														
+															<li><a href="/tag/%ED%95%A8%EC%88%98%ED%98%95%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D" class="link_tag cloud3">함수형 프로그래밍</a></li>
+														
+															<li><a href="/tag/Eclipse" class="link_tag cloud4">Eclipse</a></li>
+														
+															<li><a href="/tag/Spring" class="link_tag cloud4">Spring</a></li>
+														
+															<li><a href="/tag/Collection" class="link_tag cloud4">Collection</a></li>
+														
+															<li><a href="/tag/JavaScript" class="link_tag cloud4">JavaScript</a></li>
+														
+															<li><a href="/tag/%ED%81%90" class="link_tag cloud4">큐</a></li>
+														
+															<li><a href="/tag/%EB%9E%8C%EB%8B%A4%20%EC%B9%BC%ED%81%98%EB%9F%AC%EC%8A%A4" class="link_tag cloud4">람다 칼큘러스</a></li>
+														
+															<li><a href="/tag/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4" class="link_tag cloud4">디자인패턴</a></li>
+														
+															<li><a href="/tag/Pattern" class="link_tag cloud4">Pattern</a></li>
+														
+															<li><a href="/tag/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4" class="link_tag cloud2">프로그래머스</a></li>
+														
+															<li><a href="/tag/%EA%B2%A8%EC%9A%B8%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%9D%B8%ED%84%B4" class="link_tag cloud4">겨울카카오인턴</a></li>
+														
+															<li><a href="/tag/Rails" class="link_tag cloud4">Rails</a></li>
+														
+															<li><a href="/tag/%EC%8A%A4%ED%83%9D" class="link_tag cloud4">스택</a></li>
+														
+															<li><a href="/tag/solid" class="link_tag cloud4">solid</a></li>
+														
+															<li><a href="/tag/DesignPattern" class="link_tag cloud4">DesignPattern</a></li>
+														
+															<li><a href="/tag/Collections" class="link_tag cloud4">Collections</a></li>
+														
+															<li><a href="/tag/design-pattern" class="link_tag cloud1">design-pattern</a></li>
+														
+															<li><a href="/tag/Python" class="link_tag cloud3">Python</a></li>
+														
+															<li><a href="/tag/%EB%A1%9C%EB%B2%84%ED%8A%B8%EB%A7%88%ED%8B%B4" class="link_tag cloud4">로버트마틴</a></li>
+														
+															<li><a href="/tag/JDBC" class="link_tag cloud4">JDBC</a></li>
+														
+															<li><a href="/tag/Network" class="link_tag cloud4">Network</a></li>
+														
+															<li><a href="/tag/tcp" class="link_tag cloud4">tcp</a></li>
+														
+															<li><a href="/tag/Java" class="link_tag cloud2">Java</a></li>
+														
+													</ul>
+													<a href="https://jurogrammer.tistory.com/tag" class="link_more">more</a>
+												</div>
+											
+												<!-- 글 보관함 -->
+												<div class="box_aside box_archive">
+													<strong class="tit_aside">Archives</strong>
+													<ul class="list_keep">
+														
+													</ul>
+												</div>
+											
+												<!-- 방문자수 -->
+												<div class="box_aside box_visitor">
+													<dl class="list_visitor">
+														<dt>Today</dt>
+														<dd>9</dd>
+													</dl>
+													<dl class="list_total">
+														<dt>Total</dt>
+														<dd>42,150</dd>
+													</dl>
+												</div>
+											
+									</div>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="ico_skin btn_close">닫기</button>
+
+						<strong class="screen_out">관리 메뉴</strong>
+						<ul class="list_control">
+							<li><a href="https://jurogrammer.tistory.com/manage/entry/post" class="ico_skin link_write" title="글쓰기">글쓰기</a></li>
+							<li><a href="https://jurogrammer.tistory.com/guestbook" class="ico_skin link_memo" title="방명록">방명록</a></li>
+							<li><a href="https://jurogrammer.tistory.com/rss" class="ico_skin link_rss" title="RSS">RSS</a></li>
+							<li><a href="https://jurogrammer.tistory.com/manage" class="ico_skin link_manage" title="관리">관리</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="mArticle" class="article_skin">
+
+					
+
+					<div class="index_title">
+						<h2 class="tit_skin"><span class="txt_title">개발자 노트</span></h2>
+					</div>
+
+					           
+               
+	
+
+
+	
+		<h2 id="dkBody" class="screen_out">Prototype Pattern 본문</h2>
+		<div class="area_title">
+			<strong class="tit_category"><a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/Creational%20Design%20Pattern">디자인패턴/Creational Design Pattern</a></strong>
+			<h3 class="tit_post">Prototype Pattern</h3>
+			<span class="info_post">jurogrammer
+                           <span class="txt_bar"></span>2020. 10. 11. 12:29
+			
+		</span>
+		</div>
+
+		<div class="area_view">
+			
+            <!-- System - START -->
+
+<!-- System - END -->
+
+            <div class="contents_style"><h1>출처</h1>
+<ul>
+<li><a href="https://refactoring.guru/design-patterns/prototype">https://refactoring.guru/design-patterns/prototype</a></li>
+</ul>
+<h1>프로토타입 패턴이란?</h1>
+<ul>
+<li>생성 디자인 패턴</li>
+<li>생성할 object의 클래스에 의존하지 않고 이미 생성된 object를 통해 동일한 object를 생성할 수 있는 디자인 패턴입니다.</li>
+</ul>
+<img src="https://refactoring.guru/images/patterns/content/prototype/prototype-2x.png" style="zoom:50%;" />
+
+
+
+<h3>프로토타입?</h3>
+<p>앞으로 설명드릴 프로토타입이란 용어와 일상생활에서 쓰이는 용어와 차이점이 있습니다. 제가 이 패턴을 처음 접했을 때 가장 헷갈려서 개념을 받아들이기 어려웠기 때문에 차이점을 먼저 짚어보겠습니다.</p>
+<h4>일상생활에서 쓰이는 프로토타입 용어</h4>
+<ul>
+<li>이 프로토타입은 대량생산 전 성능을 검증하고 개선하기 위해 핵심기능만 넣어서 제작한 모델을 프로토타입이라 부릅니다.</li>
+<li>또는 게임의 본격적인 개발에 앞서 재미요소나 구현 가능성을 검증하기 위해 제작하는 시제품을 의미하지요.</li>
+</ul>
+<p>아마 이 두 뜻이 일반적으로 알고 있는 내용이라 생각이 듭니다. 그렇기 때문에 이 정의에 맞추어 프로토타입 패턴을 받아들이려고 하면 어려움이 뒤따를 수 밖에 없습니다. 프로토타입 패턴에서 프로토타입은 다음과 같습니다.</p>
+<h4>프로토타입 패턴에서 프로토타입 용어</h4>
+<ul>
+<li><p><strong>자기 자신을 복제하는 기능</strong>을 지원하는 <strong>객체</strong>를 프로토타입이라고 부릅니다.   (자기 자신을 어떻게 복제하는지는 아래에서 자세히 설명드리겠습니다.)</p>
+<p><code>An object that supports cloning is called a prototype.</code></p>
+</li>
+</ul>
+<p><strong>자기 자신을 생성한다</strong>는 면에서 큰 차이점이 있습니다. 따라서 이 프로토타입은 오히려 자기복제하는 아메바와 비슷한 의미하는 것이지요.</p>
+<img src="https://refactoring.guru/images/patterns/content/prototype/prototype-comic-3-en-2x.png" style="zoom: 50%;" />
+
+<p>그래도 두 용어의 어원은 &#39;원초적 형태&#39;라는 의미를 가지고 있긴 합니다.</p>
+<h1>상황</h1>
+<ul>
+<li>object를 똑같이 복제하려 합니다.</li>
+</ul>
+<h3>방법 - object의 클래스를 이용</h3>
+<ol>
+<li>object의 클래스에서 새로운 object를 생성합니다.</li>
+<li>복제하고 싶은 object의 모든 필드를 그대로 새로운 object로 카피하여 옮깁니다.</li>
+</ol>
+<h4>문제점</h4>
+<ol>
+<li>필드가 private로 선언된 경우 object의 field값에 접근못할 수 있습니다.<ul>
+<li>이 때문에 런타임 중 object를 복제하지 못합니다.</li>
+</ul>
+</li>
+<li>concrete class에 의존하게 됩니다.<ul>
+<li>concrete class를 이용하여 생성하기 때문입니다.</li>
+</ul>
+</li>
+<li>object의 인터페이스만 알고 있는 경우 생성할 수 없습니다.<ul>
+<li>다른 interface를 통해서 객체를 받은 경우 concrete  class를 모를 수 있습니다.</li>
+</ul>
+</li>
+</ol>
+<h1>해결방법</h1>
+<h4><strong>복제하는 책임을 class에서 복제하려는 object에게 넘깁니다!</strong></h4>
+<ol>
+<li><p>concrete class를 찾아 생성할 필요가 없어집니다.</p>
+</li>
+<li><p>object 자신은 자신의 field에 접근할 수 있기 때문에 private로 선언된 문제도 해결할 수 있습니다.</p>
+</li>
+</ol>
+<h4><strong>복제하려는 objects들의 interface를 선언합니다.</strong></h4>
+<ol>
+<li>생성한 object를 concrete class로 받을 필요가 없어집니다.</li>
+<li>보통 이 interface는 자기 자신을 복제하는 clone() 메서드를 선언합니다.</li>
+</ol>
+<h1>구조</h1>
+<h3>1. Basic implementation</h3>
+<img src="https://refactoring.guru/images/patterns/diagrams/prototype/structure-indexed-2x.png" style="zoom: 67%;" />
+
+<h4>1. Prototype</h4>
+<p>프로토타입을 만드려는 객체 클래스들의 interface입니다. (다시 한번 프로토타입을 말하자면 자가 복제 기능을 가진 객체!!)</p>
+<p>이 인터페이스를 통해서 clone를 상속받고, 프로토타입 객체들을 이 공통의 타입으로 받을 수 있게 되지요. (다형성)</p>
+<pre><code class="language-java">public interface Prototype {
+    public Prototype clone();
+}</code></pre>
+<h4>2. ConcretePrototype</h4>
+<p>프로토타입의 인터페이스를 구현합니다. 따라서 이 클래스는 <strong>clone()</strong>메서드를 가지고 있습니다.</p>
+<pre><code class="language-java">public class Circle implements Prototype {
+    private int x;
+    private int y;
+
+    public Circle(Circle prototype) {
+        this.x = prototype.x;
+        this.y = prototype.y;
+    }
+
+    public Circle(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public Prototype clone() {
+        return new Circle(this);
+    }
+}</code></pre>
+<h4>clone()</h4>
+<p>그리고 clone()을 다음과 같은 방식으로 구현합니다.</p>
+<ol>
+<li><p>생성자에 자신의 타입을 가진 객체를 넘길 수 있도록 합니다.</p>
+</li>
+<li><p>초기화를 위해 파라미터로 받는 생성자를 만들어줍니다.</p>
+<ul>
+<li>복제하기 위해 자신의 객체를 넣어주어야 하는데 이 부분이 없으면 자신의 객체를 만들 수가 없기 때문입니다.</li>
+</ul>
+</li>
+</ol>
+<h4>sub-class</h4>
+<ol>
+<li>super(prototype)를 이용하여 상위 class에 값을 전달해줍니다.</li>
+</ol>
+<pre><code class="language-java">public class RedCircle extends Circle {
+    private String color;
+
+    public RedCircle(RedCircle prototype) {
+        super(prototype);
+        this.color = prototype.color;
+    }
+
+    //javascript와 비슷한 방식
+    public RedCircle(Circle circle, String color) {
+        super(circle);
+        this.color = color;
+    }
+
+    public RedCircle(int x, int y, String color) {
+        super(x, y);
+        this.color = color;
+    }
+
+    public Prototype clone() {
+        return new RedCircle(this);
+    }
+}</code></pre>
+<h4>3. Client</h4>
+<ol>
+<li><p>Prototype interface를 통해 객체를 생성할 수 있습니다.</p>
+<pre><code class="language-java">public class Client {
+    Prototype circle = new Circle(3, 5);
+    Prototype redCircle1 = new RedCircle(3, 5, &quot;red&quot;);
+    Prototype redCircle2 = new RedCircle((Circle) circle, &quot;red&quot;);
+
+    Prototype newCircle = circle.clone();
+    Prototype newRedCircle = redCircle1.clone();
+}</code></pre>
+</li>
+</ol>
+<h3>2.Prototype registry implementation</h3>
+<p>프로토타입들을 콜렉터를 통해 관리할 수 있도록 구현 합니다. 따라서 클라이언트에게 어떻게 생성하는지는 숨길 수 있고, 클라이언트는 이 저장소를 통해 값을 가져올 수 있습니다.</p>
+<p>여기서 클라이언트는 값을 제공해주고 빼내오는 클래스로 1. 초기화하여 레지스트리에 값을 저장하려는 클래스, 2. 레지스트리에 접근하여 값을 가져오려는 클래스 두 가지로 봐도 될 것 같습니다.</p>
+<img src="https://refactoring.guru/images/patterns/diagrams/prototype/structure-prototype-cache-indexed-2x.png" style="zoom: 67%;" />
+
+
+
+<h1>비판 - 자바에서 프로토타입 패턴 문제점</h1>
+<p>프로토타입을 구현한 객체들의 다른 내용을 사용하려면 캐스팅을 해주어야 합니다. 이때는 다른 메서드도 추가할 것이니 abstract를 적용해보겠습니다.</p>
+<h4>Shape [prototype class]</h4>
+<pre><code class="language-java">abstract class Shape {
+    private int x;
+    private int y;
+
+    public Shape(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public Shape(Shape shape) {
+        this.x = shape.x;
+        this.y = shape.y;
+    }
+
+    public abstract Shape clone();
+}</code></pre>
+<p>이 프로토타입은 도형이라는 것만 복제할 것이기 때문에 필드에 int x, int y를 선언해주었습니다.</p>
+<h4>Circle</h4>
+<pre><code class="language-java">public class Circle extends Shape{
+    private int radius;
+
+    public Circle(int x, int y, int radius) {
+        super(x, y);
+        this.radius = radius;
+    }
+
+    public Circle(Circle circle) {
+        super(circle);
+        this.radius = circle.radius;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    @Override
+    public Shape clone() {
+        return new Circle(this);
+    }
+}</code></pre>
+<p>도형이라는 프로토타입을 상속받아 Circle이라는 속성을 부여해주는 radius 필드를 추가하였습니다. 그리고 이 radius에 접근하려면 getRadius() 메서드를 선언주어야겠지요.</p>
+<h4>Client</h4>
+<pre><code class="language-java">public class Client {
+    public static void main(String[] args) {
+        Circle circle = new Circle(3,5,110);
+
+
+        //에러
+        Shape circle1 = circle.clone();
+        circle1.getRadius();
+
+        //캐스팅
+        Circle circle2 = (Circle) circle.clone();
+        circle2.getRadius();
+
+        /**
+         * 3자에게 주입받아 타입을 모른 채 사용할 수 있도록 하려 함. 그래서 Shape라는 프로토타입 인터페이스를
+         * 선언해주었으나, Circle이라는 class 의미를 부여한 radius에 접근하는 getRadius()를 사용하기 위해서는
+         * object의 타입을 확인해주고 Circle로 캐스팅해주어야 했음.
+         */
+    }
+}</code></pre>
+<p>주석에 달아놓은 것처럼, 3자에게 주입받아 타입을 모른 채 사용할 수 있어야 하는데, getRadius에 접근하려면 캐스팅이 필요합니다. 즉, 객체를 이용하려면 타입을 알아야만 한다는 것이지요. </p>
+<p>캐스팅은 좋지 못한 방법이라 생각하기 때문에 자바에는 그리 적절하진 않은 것 같습니다.</p>
+<p>따라서 타입이 동적으로 변하는 파이썬이나 자바스크립트에 더 어울리는 방법이라 보이네요.</p>
+<h1>다른 패턴과 관계</h1>
+<ol>
+<li>Factory method에서 복잡해지면 Prototype적용 가능합니다.<ul>
+<li>생성 책임 분리</li>
+</ul>
+</li>
+<li>Abstract Factory가 factory methods의 모음이라 말할 수 있는데, 이 factory method의 생성하는 부분을 prototype 패턴으로 대체할 수 있습니다.</li>
+</ol></div>
+                    <!-- System - START -->
+        <div class="revenue_unit_wrap">
+  <div class="revenue_unit_item adsense responsive">
+    <div class="revenue_unit_info">반응형</div>
+    <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async="async"></script>
+    <ins class="adsbygoogle" style="display: block;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-3877954716170428" data-ad-format="auto"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+        <!-- System - END -->
+
+<script onerror="changeAdsenseToNaverAd()" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9527582522912841" crossorigin="anonymous"></script>
+<!-- inventory -->
+<ins class="adsbygoogle" style="margin:50px 0; display:block;" data-ad-client="ca-pub-9527582522912841" data-ad-slot="4947159016" data-ad-format="auto" data-full-width-responsive="true" data-ad-type="inventory" data-ad-adfit-unit="DAN-HCZEy0KQLPMGnGuC"></ins>
+
+<script id="adsense_script">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+    if(window.observeAdsenseUnfilledState !== undefined){ observeAdsenseUnfilledState(); }
+</script>
+<div data-tistory-react-app="NaverAd"></div>
+
+                    <div class="container_postbtn #post_button_group">
+  <div class="postbtn_like"><script>window.ReactionButtonType = 'reaction';
+window.ReactionApiUrl = '//jurogrammer.tistory.com/reaction';
+window.ReactionReqBody = {
+    entryId: 106
+}</script>
+<div class="wrap_btn" id="reaction-106" data-tistory-react-app="Reaction"></div><div class="wrap_btn wrap_btn_share"><button type="button" class="btn_post sns_btn btn_share" aria-expanded="false" data-thumbnail-url="https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png" data-title="Prototype Pattern" data-description="출처 https://refactoring.guru/design-patterns/prototype 프로토타입 패턴이란? 생성 디자인 패턴 생성할 object의 클래스에 의존하지 않고 이미 생성된 object를 통해 동일한 object를 생성할 수 있는 디자인 패턴입니다. 프로토타입? 앞으로 설명드릴 프로토타입이란 용어와 일상생활에서 쓰이는 용어와 차이점이 있습니다. 제가 이 패턴을 처음 접했을 때 가장 헷갈려서 개념을 받아들이기 어려웠기 때문에 차이점을 먼저 짚어보겠습니다. 일상생활에서 쓰이는 프로토타입 용어 이 프로토타입은 대량생산 전 성능을 검증하고 개선하기 위해 핵심기능만 넣어서 제작한 모델을 프로토타입이라 부릅니다. 또는 게임의 본격적인 개발에 앞서 재미요소나 구현 가능성을 검증하기 위해 제작하는 .." data-profile-image="https://t1.daumcdn.net/tistory_admin/static/manage/images/r3/default_L.png" data-profile-name="jurogrammer" data-pc-url="https://jurogrammer.tistory.com/106" data-relative-pc-url="/106" data-blog-title="개발자 노트"><span class="ico_postbtn ico_share">공유하기</span></button>
+  <div class="layer_post" id="tistorySnsLayer"></div>
+</div><div class="wrap_btn wrap_btn_etc" data-entry-id="106" data-entry-visibility="public" data-category-visibility="public"><button type="button" class="btn_post btn_etc2" aria-expanded="false"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+  <div class="layer_post" id="tistoryEtcLayer"></div>
+</div></div>
+<button type="button" class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="3684506" data-url="https://jurogrammer.tistory.com/106" data-device="web_pc" data-tiara-action-name="구독 버튼_클릭"><em class="txt_state"></em><strong class="txt_tool_id">개발자 노트</strong><span class="img_common_tistory ico_check_type1"></span></button>  <div data-tistory-react-app="SupportButton"></div>
+</div>
+
+                    <!-- PostListinCategory - START -->
+<div class="another_category another_category_color_gray">
+  <h4>'<a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4">디자인패턴</a> &gt; <a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/Creational%20Design%20Pattern">Creational Design Pattern</a>' 카테고리의 다른 글</h4>
+  <table>
+    <tr>
+      <th><a href="/107">Singleton Pattern</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2020.10.11</td>
+    </tr>
+    <tr>
+      <th><a href="/105">Builder Pattern</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2020.10.11</td>
+    </tr>
+    <tr>
+      <th><a href="/104">Abstract Factory</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2020.10.11</td>
+    </tr>
+    <tr>
+      <th><a href="/103">Factory Method Pattern</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2020.10.11</td>
+    </tr>
+  </table>
+</div>
+
+<!-- PostListinCategory - END -->
+
+		</div>
+		<div class="area_etc">
+			
+				<dl class="list_tag">
+					<dt>Tag</dt>
+					<dd><a href="/tag/design-pattern" rel="tag">design-pattern</a>, <a href="/tag/prototype-pattern" rel="tag">prototype-pattern</a></dd>
+				</dl>
+			
+		</div>
+
+		
+			<div class="area_related">
+				<strong class="tit_related">'디자인패턴/Creational Design Pattern' Related Articles</strong>
+				<ul class="list_related">
+					
+						<li class="text_type">
+							<a href="/107?category=950558" class="link_related">
+								
+								<span class="txt_related">Singleton Pattern</span>
+								<span class="date_related">2020.10.11</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="text_type">
+							<a href="/105?category=950558" class="link_related">
+								
+								<span class="txt_related">Builder Pattern</span>
+								<span class="date_related">2020.10.11</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="text_type">
+							<a href="/104?category=950558" class="link_related">
+								
+								<span class="txt_related">Abstract Factory</span>
+								<span class="date_related">2020.10.11</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="text_type">
+							<a href="/103?category=950558" class="link_related">
+								
+								<span class="txt_related">Factory Method Pattern</span>
+								<span class="date_related">2020.10.11</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+				</ul>
+				<a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/Creational%20Design%20Pattern" class="link_more">more</a>
+			</div>
+		
+
+		<div class="area_reply">
+			<strong class="tit_reply" onclick=""><span id="commentCount106_0">0</span>  Comments</strong>
+			<div data-tistory-react-app="Namecard"></div><div id="entry106Comment">
+				
+					<ul class="list_reply">
+						            
+
+            
+
+					</ul>
+				
+
+				       <form method="post" action="/comment/add/106" onsubmit="return false" style="margin: 0">
+           
+<fieldset class="fld_reply">
+	<legend class="screen_out">댓글쓰기 폼</legend>
+	
+		
+			<div class="writer_info">
+                                          <span class="info_name">
+                                              <label for="name" class="lab_info screen_out">이름</label>
+                                              <span class="wrap_info">
+                                                  <input type="text" name="name" id="name" class="inp_info" placeholder="Name" tabindex="1">
+                                              </span>
+                                          </span>
+				<span class="info_pw ">
+                                              <label for="password" class="lab_info screen_out">비밀번호</label>
+                                              <span class="wrap_info">
+                                                  <input type="password" name="password" id="password" class="inp_info" placeholder="Password" tabindex="2">
+                                              </span>
+                                          </span>
+			</div>
+		
+		<div class="writer_check">
+                                      <span class="check_secret ">
+                                          <input type="checkbox" name="secret" id="secret" class="inp_secret" tabindex="4">
+                                          <label for="secret" class="lab_secret">
+                                              <span class="ico_skin ico_check"></span>
+                                              Secret
+                                          </label>
+                                      </span>
+		</div>
+	
+
+	<div class="reply_write ">
+		<label for="comment" class="lab_write screen_out">내용</label>
+		<textarea name="comment" id="comment" class="tf_reply" placeholder="여러분의 소중한 댓글을 입력해주세요" tabindex="3"></textarea>
+	</div>
+
+	<div class="writer_btn">
+		<button type="submit" class="btn_enter" onclick="addComment(this, 106); return false;" tabindex="5">Send</button>
+	</div>
+</fieldset>
+
+       </form>
+			</div>
+<script type="text/javascript">loadedComments[106]=true;
+findFragmentAndHighlight(106);</script>
+
+		</div>
+
+
+	
+
+               
+           
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+				</div>
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="dkFoot" role="contentinfo" class="area_foot">
+			<small class="info_copyright">
+				Blog is powered by
+				<a href="http://www.kakaocorp.com" class="emph_t" target="_blank">kakao</a> / Designed by
+				<a href="http://www.tistory.com" class="emph_t" target="_blank">Tistory</a>
+			</small>
+		</div>
+	</div>
+
+
+
+<script src="https://tistory1.daumcdn.net/tistory/3684506/skin/images/script.js?_version_=1687690594"></script>
+<div class="#menubar menu_toolbar ">
+  <h2 class="screen_out">티스토리툴바</h2>
+</div>
+<div class="#menubar menu_toolbar "></div>
+<div class="layer_tooltip">
+  <div class="inner_layer_tooltip">
+    <p class="desc_g"></p>
+  </div>
+</div>
+<div id="editEntry" style="position:absolute;width:1px;height:1px;left:-100px;top:-100px"></div>
+
+
+                <!-- DragSearchHandler - START -->
+<script src="//search1.daumcdn.net/search/statics/common/js/g/search_dragselection.min.js"></script>
+
+<!-- DragSearchHandler - END -->
+
+        <!-- SyntaxHighlight - START -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/atom-one-light.min.css" rel="stylesheet"/><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/delphi.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/php.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/r.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/ruby.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/scala.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/swift.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/typescript.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/vbnet.min.js" defer></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+        <!-- SyntaxHighlight - END -->
+
+                
+                <div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-39ee03342e373848ba7c0bb12e153b29db04aa6b/static/script/common.js"></script>
+<script type="text/javascript">window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: '{tistory}'}]</script>
+<script type="text/javascript" src="//t1.daumcdn.net/midas/rt/dk_bt/roosevelt_dk_bt.js" async="async"></script>
+
+                
+                <script>window.tiara = {"svcDomain":"user.tistory.com","section":"글뷰","trackPage":"글뷰_보기","page":"글뷰","key":"3684506-106","customProps":{"userId":"0","blogId":"3684506","entryId":"106","role":"guest","trackPage":"글뷰_보기","filterTarget":false},"entry":{"entryId":"106","entryTitle":"Prototype Pattern","entryType":"POST","categoryName":"디자인패턴/Creational Design Pattern","categoryId":"950558","serviceCategoryName":"IT 인터넷","serviceCategoryId":401,"author":"4228808","authorNickname":"jurogrammer","blogNmae":"개발자 노트","image":"","plink":"/106","tags":["design-pattern","prototype-pattern"]},"kakaoAppKey":"3e6ddd834b023f24221217e370daed18","appUserId":"null"}</script>
+<script type="module" src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.5/index.js"></script>
+<script src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.5/polyfills-legacy.js" nomodule="true" defer="true"></script>
+<script src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.5/index-legacy.js" nomodule="true" defer="true"></script>
+
+                </body>
+
+</html>
