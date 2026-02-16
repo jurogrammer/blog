@@ -48,6 +48,7 @@
 - Local environments without Hugo installed must use a temporary binary or CI for full render verification.
 
 # Change Log (Last 10)
+- 2026-02-16: Improved Team Generator category delete button visibility with emphasized danger styling (outlined red button, stronger contrast, clearer hover/focus states).
 - 2026-02-16: Updated local dev launcher to set `baseURL` dynamically from the requested port so navigation remains localhost-safe on any port.
 - 2026-02-16: Added `hugo.local.toml` and `scripts/dev-local.sh` for localhost-safe development links (`http://localhost:<port>/blog/`) without touching production `baseURL`.
 - 2026-02-16: Added `Tools` to the top navigation menu in `hugo.toml` so tool pages are discoverable from the global header.
@@ -57,5 +58,3 @@
 - 2026-02-16: Reduced per-category member textarea minimum height to better fit category-based input workflow.
 - 2026-02-16: Migrated Team Generator from single list input to multi-category input and introduced category-aware round-robin allocation with localStorage schema v2.
 - 2026-02-16: Adjusted Team Generator form control styling to explicit light theme values (white input backgrounds, native-like borders) and enabled dataset selector visual state for UI parity.
-- 2026-02-16: Added `/tools/team-generator/` client-side tool (custom layout, modular JS, token-based CSS) and updated CI to run Hugo build on PRs while restricting deploy to `main` pushes.
-- 2026-02-16: Bootstrapped root architecture context and normalized conventions for upcoming tool-page implementation.

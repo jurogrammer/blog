@@ -324,19 +324,30 @@
 }
 
 .tg-category-remove-btn {
-  border: 0;
-  background: transparent;
-  color: #666666;
-  font-size: 12px;
+  border: 1px solid #cc5a5a;
+  background: #fff2f2;
+  color: #8d1f1f;
+  font-size: 11px;
+  font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  padding: 3px 0;
+  padding: 8px 10px;
+  border-radius: 4px;
+  min-width: 76px;
+  text-align: center;
 }
 
 .tg-category-remove-btn:hover {
-  color: var(--tg-color-bad);
+  background: #ffe1e1;
+  border-color: #a32019;
+  color: #a32019;
+}
+
+.tg-category-remove-btn:focus-visible {
+  outline: 2px solid #a32019;
+  outline-offset: 1px;
 }
 
 .tg-button-secondary {

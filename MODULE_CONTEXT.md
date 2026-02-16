@@ -42,6 +42,7 @@
 - Local environments may miss `hugo` CLI and require temporary binary download for render checks.
 
 # Change Log (Last 10)
+- 2026-02-16: Strengthened Team Generator category `DELETE` affordance using danger-toned outlined button styling with explicit hover/focus emphasis.
 - 2026-02-16: Changed local dev startup to dynamic `--baseURL` injection per port in `scripts/dev-local.sh` and removed fixed port from `hugo.local.toml`.
 - 2026-02-16: Added local-run helper script (`scripts/dev-local.sh`) and local config override (`hugo.local.toml`) to prevent production URL redirects during localhost development.
 - 2026-02-16: Updated global main menu config to include `/tools/` entry for direct navigation to tool pages.
@@ -51,5 +52,3 @@
 - 2026-02-16: Tuned category member textarea size by lowering minimum height for denser category entry UI.
 - 2026-02-16: Reworked Team Generator form to dynamic category blocks (`+ Add Category`, per-category title/edit/delete) and replaced flat allocation with category-based round-robin distribution.
 - 2026-02-16: Updated Team Generator form UI colors by forcing white form-control backgrounds and native-like gray borders; dataset selector now renders as enabled to match reference visuals.
-- 2026-02-16: Implemented Team Generator page (`content/tools/team-generator/index.md`) with dedicated layout and modular vanilla JS/CSS under `static/tools/team-generator/`.
-- 2026-02-16: Created initial module context for `blog-site` and documented runtime/config conventions.
