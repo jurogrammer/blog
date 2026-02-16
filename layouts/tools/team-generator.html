@@ -11,13 +11,13 @@
           <span>Rerun</span>
         </button>
         <div class="tg-settings-tooltip-container">
-          <button type="button" class="tg-button-icon" data-action="edit" aria-label="Edit names">
+          <button type="button" class="tg-button-icon" data-action="edit" aria-label="Edit categories">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19.14 12.94a7.43 7.43 0 0 0 .05-.94 7.43 7.43 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.63l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.09 7.09 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.49-.42h-3.84a.5.5 0 0 0-.49.42l-.36 2.54a7.09 7.09 0 0 0-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.68 8.85a.5.5 0 0 0 .12.63l2.03 1.58a7.43 7.43 0 0 0-.05.94 7.43 7.43 0 0 0 .05.94l-2.03 1.58a.5.5 0 0 0-.12.63l1.92 3.32a.5.5 0 0 0 .6.22l2.39-.96c.5.38 1.04.69 1.63.94l.36 2.54a.5.5 0 0 0 .49.42h3.84a.5.5 0 0 0 .49-.42l.36-2.54c.59-.25 1.13-.56 1.63-.94l2.39.96a.5.5 0 0 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.63l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5z" />
             </svg>
             <span>Edit</span>
           </button>
-          <div class="tg-settings-tooltip" data-role="edit-tooltip">Edit the names!</div>
+          <div class="tg-settings-tooltip" data-role="edit-tooltip">Edit categories!</div>
         </div>
       </aside>
     </div>
@@ -34,7 +34,7 @@
         </svg>
         <span>Rerun</span>
       </button>
-      <button type="button" class="tg-button-icon" data-action="edit" aria-label="Edit names">
+      <button type="button" class="tg-button-icon" data-action="edit" aria-label="Edit categories">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M19.14 12.94a7.43 7.43 0 0 0 .05-.94 7.43 7.43 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.63l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.09 7.09 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.49-.42h-3.84a.5.5 0 0 0-.49.42l-.36 2.54a7.09 7.09 0 0 0-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.68 8.85a.5.5 0 0 0 .12.63l2.03 1.58a7.43 7.43 0 0 0-.05.94 7.43 7.43 0 0 0 .05.94l-2.03 1.58a.5.5 0 0 0-.12.63l1.92 3.32a.5.5 0 0 0 .6.22l2.39-.96c.5.38 1.04.69 1.63.94l.36 2.54a.5.5 0 0 0 .49.42h3.84a.5.5 0 0 0 .49-.42l.36-2.54c.59-.25 1.13-.56 1.63-.94l2.39.96a.5.5 0 0 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.63l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5z" />
         </svg>
@@ -65,10 +65,11 @@
         </p>
 
         <form id="team-generator-form" novalidate>
-          <p>
-            <label for="names-input">Names</label>
-            <textarea id="names-input" name="names" spellcheck="false" autocomplete="off"></textarea>
-          </p>
+          <div class="tg-categories-field">
+            <label for="categories-container">Categories</label>
+            <div id="categories-container" class="tg-categories" aria-live="polite"></div>
+            <button type="button" class="tg-button-secondary" id="add-category-btn">+ Add Category</button>
+          </div>
           <p>
             <label for="mode-select">Mode</label>
             <select id="mode-select" name="mode">
@@ -97,11 +98,12 @@
       <div class="tg-layout-copy">
         <h2>How to create randomized groups</h2>
         <p>
-          Enter each item on a new line or separate names with commas, choose the amount of groups (or members per
-          group) under settings, and click the button to generate your randomized list.
+          Enter participants in one or more categories, then choose the amount of groups (or members per group) and
+          click randomize.
         </p>
         <p>
-          Use this when you need fair groups without drafting manually. Every rerun reshuffles the same participant set.
+          Each category is shuffled independently and distributed round-robin so categories are spread across teams as
+          evenly as possible.
         </p>
         <p>
           Results stay on this device using local storage, so a refresh keeps your latest names and options.

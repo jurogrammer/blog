@@ -6,40 +6,59 @@ function toPositiveInteger(value, fallback = 1) {
   return parsed;
 }
 
-function allocateByTeamCount(participants, teamCountInput) {
-  const teamCount = Math.min(toPositiveInteger(teamCountInput, 1), participants.length);
-  const groups = Array.from({ length: teamCount }, () => []);
-
-  participants.forEach((name, index) => {
-    groups[index % teamCount].push(name);
-  });
-
-  return groups;
-}
-
-function allocateByTeamSize(participants, teamSizeInput) {
-  const teamSize = toPositiveInteger(teamSizeInput, 1);
-  const teamCount = Math.ceil(participants.length / teamSize);
-  const groups = Array.from({ length: teamCount }, () => []);
-
-  participants.forEach((name, index) => {
-    const teamIndex = Math.floor(index / teamSize);
-    groups[teamIndex].push(name);
-  });
-
-  return groups;
-}
-
-export function allocateTeams(participants, settings) {
-  if (!Array.isArray(participants) || participants.length === 0) {
-    return [];
+function countParticipants(categories) {
+  if (!Array.isArray(categories)) {
+    return 0;
   }
 
+  return categories.reduce((total, category) => total + category.members.length, 0);
+}
+
+function resolveTeamCount(totalParticipants, settings) {
   const mode = settings?.mode === "team-size" ? "team-size" : "team-count";
 
   if (mode === "team-size") {
-    return allocateByTeamSize(participants, settings.teamSize);
+    const teamSize = toPositiveInteger(settings?.teamSize, 1);
+    return Math.max(1, Math.ceil(totalParticipants / teamSize));
   }
 
-  return allocateByTeamCount(participants, settings.teamCount);
+  const requestedCount = toPositiveInteger(settings?.teamCount, 1);
+  return Math.min(requestedCount, totalParticipants);
+}
+
+function allocateByCategoryRoundRobin(categories, teamCount) {
+  const groups = Array.from({ length: teamCount }, () => []);
+  const sorted = [...categories].sort((left, right) => {
+    if (right.members.length !== left.members.length) {
+      return right.members.length - left.members.length;
+    }
+    return left.title.localeCompare(right.title);
+  });
+
+  let teamCursor = 0;
+
+  sorted.forEach((category) => {
+    category.members.forEach((member) => {
+      groups[teamCursor % teamCount].push(member);
+      teamCursor += 1;
+    });
+  });
+
+  return groups;
+}
+
+export function allocateTeams(categories, settings) {
+  if (!Array.isArray(categories) || categories.length === 0) {
+    return [];
+  }
+
+  const filtered = categories.filter((category) => Array.isArray(category.members) && category.members.length > 0);
+  const totalParticipants = countParticipants(filtered);
+
+  if (totalParticipants === 0) {
+    return [];
+  }
+
+  const teamCount = resolveTeamCount(totalParticipants, settings);
+  return allocateByCategoryRoundRobin(filtered, teamCount);
 }

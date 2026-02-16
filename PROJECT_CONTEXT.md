@@ -42,11 +42,17 @@
 - The repository currently operates as a single module (`blog-site`) rooted at project root.
 - Team Generator will remain fully client-side to preserve static hosting constraints.
 - Team Generator UI is implemented in namespaced CSS/JS under `static/tools/team-generator/` and mounted by a dedicated Hugo layout.
+- Team Generator participant input model is category-first (multiple category blocks with titles), and allocation prioritizes category-balanced round-robin distribution.
 
 # Known Issues
 - Local environments without Hugo installed must use a temporary binary or CI for full render verification.
 
 # Change Log (Last 10)
+- 2026-02-16: Removed redundant category textarea `min-height` override and kept a single shared textarea sizing rule for Team Generator settings.
+- 2026-02-16: Unified category textarea sizing rules to `84px` minimum height to avoid selector conflicts and ensure compact input boxes.
+- 2026-02-16: Fixed category textarea height override by lowering the shared Team Generator textarea minimum height so compact category entry displays correctly.
+- 2026-02-16: Reduced per-category member textarea minimum height to better fit category-based input workflow.
+- 2026-02-16: Migrated Team Generator from single list input to multi-category input and introduced category-aware round-robin allocation with localStorage schema v2.
 - 2026-02-16: Adjusted Team Generator form control styling to explicit light theme values (white input backgrounds, native-like borders) and enabled dataset selector visual state for UI parity.
 - 2026-02-16: Added `/tools/team-generator/` client-side tool (custom layout, modular JS, token-based CSS) and updated CI to run Hugo build on PRs while restricting deploy to `main` pushes.
 - 2026-02-16: Bootstrapped root architecture context and normalized conventions for upcoming tool-page implementation.

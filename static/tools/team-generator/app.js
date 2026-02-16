@@ -1,4 +1,4 @@
-import { parseParticipants } from "./parser.js";
+import { parseCategories, countParticipants } from "./parser.js";
 import { fisherYatesShuffle } from "./shuffle.js";
 import { allocateTeams } from "./allocator.js";
 import { createDefaultState, loadState, saveState } from "./storage.js";
@@ -10,6 +10,32 @@ function toPositiveInteger(value, fallback = 1) {
     return fallback;
   }
   return parsed;
+}
+
+function createCategory(id, index, text = "") {
+  return {
+    id,
+    title: `Category ${index + 1}`,
+    text: String(text || ""),
+  };
+}
+
+function normalizeCategories(categories, nextIdRef) {
+  if (!Array.isArray(categories) || categories.length === 0) {
+    const fallback = createCategory(1, 0);
+    nextIdRef.value = Math.max(nextIdRef.value, 2);
+    return [fallback];
+  }
+
+  const normalized = categories.map((category, index) => ({
+    id: Number.isFinite(category?.id) ? category.id : index + 1,
+    title: String(category?.title || "").trim() || `Category ${index + 1}`,
+    text: String(category?.text || ""),
+  }));
+
+  const maxId = normalized.reduce((max, category) => Math.max(max, category.id), 0);
+  nextIdRef.value = Math.max(nextIdRef.value, maxId + 1, 2);
+  return normalized;
 }
 
 function copyTextToClipboard(text) {
@@ -50,7 +76,8 @@ function initialize() {
   }
 
   const form = root.querySelector("#team-generator-form");
-  const namesInput = root.querySelector("#names-input");
+  const categoriesContainer = root.querySelector("#categories-container");
+  const addCategoryButton = root.querySelector("#add-category-btn");
   const modeSelect = root.querySelector("#mode-select");
   const teamCountInput = root.querySelector("#team-count-input");
   const teamSizeInput = root.querySelector("#team-size-input");
@@ -69,15 +96,46 @@ function initialize() {
 
   let state = loadState();
 
-  function applyStateToInputs() {
-    namesInput.value = state.namesText;
-    modeSelect.value = state.mode;
-    teamCountInput.value = String(toPositiveInteger(state.teamCount, 1));
-    teamSizeInput.value = String(toPositiveInteger(state.teamSize, 1));
-    removeDuplicatesInput.checked = Boolean(state.removeDuplicates);
-    if (state.tooltipDismissed) {
-      tooltipNode.hidden = true;
-    }
+  function renderCategories() {
+    categoriesContainer.replaceChildren();
+
+    state.categories.forEach((category, index) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "tg-category-item";
+      wrapper.dataset.categoryId = String(category.id);
+
+      const header = document.createElement("div");
+      header.className = "tg-category-header";
+
+      const titleInput = document.createElement("input");
+      titleInput.type = "text";
+      titleInput.className = "tg-category-title-input";
+      titleInput.value = category.title;
+      titleInput.setAttribute("data-category-field", "title");
+      titleInput.setAttribute("aria-label", `Category ${index + 1} title`);
+
+      const removeButton = document.createElement("button");
+      removeButton.type = "button";
+      removeButton.className = "tg-category-remove-btn";
+      removeButton.textContent = "Delete";
+      removeButton.setAttribute("data-action", "remove-category");
+      removeButton.setAttribute("aria-label", `Delete ${category.title}`);
+      if (index === 0) {
+        removeButton.hidden = true;
+      }
+
+      const textarea = document.createElement("textarea");
+      textarea.className = "tg-category-textarea";
+      textarea.value = category.text;
+      textarea.spellcheck = false;
+      textarea.setAttribute("autocomplete", "off");
+      textarea.setAttribute("data-category-field", "text");
+      textarea.setAttribute("aria-label", `${category.title} names`);
+
+      header.append(titleInput, removeButton);
+      wrapper.append(header, textarea);
+      categoriesContainer.appendChild(wrapper);
+    });
   }
 
   function syncModeFieldVisibility() {
@@ -94,16 +152,38 @@ function initialize() {
   }
 
   function persistState(partial = {}) {
+    const nextIdRef = { value: Number.parseInt(String(state.nextCategoryId || 2), 10) || 2 };
+    const mergedCategories = partial.categories ?? state.categories;
+    const categories = normalizeCategories(mergedCategories, nextIdRef);
+
     state = {
       ...state,
       ...partial,
-      namesText: namesInput.value,
+      categories,
+      nextCategoryId: partial.nextCategoryId ?? nextIdRef.value,
       mode: modeSelect.value === "team-size" ? "team-size" : "team-count",
       teamCount: toPositiveInteger(teamCountInput.value, 1),
       teamSize: toPositiveInteger(teamSizeInput.value, 1),
       removeDuplicates: removeDuplicatesInput.checked,
     };
+
     saveState(state);
+  }
+
+  function applyStateToInputs() {
+    const nextIdRef = { value: Number.parseInt(String(state.nextCategoryId || 2), 10) || 2 };
+    state.categories = normalizeCategories(state.categories, nextIdRef);
+    state.nextCategoryId = nextIdRef.value;
+
+    modeSelect.value = state.mode;
+    teamCountInput.value = String(toPositiveInteger(state.teamCount, 1));
+    teamSizeInput.value = String(toPositiveInteger(state.teamSize, 1));
+    removeDuplicatesInput.checked = Boolean(state.removeDuplicates);
+    renderCategories();
+
+    if (state.tooltipDismissed) {
+      tooltipNode.hidden = true;
+    }
   }
 
   function buildSettingsFromInputs() {
@@ -117,19 +197,23 @@ function initialize() {
 
   function generateTeams() {
     const settings = buildSettingsFromInputs();
-    const participants = parseParticipants(namesInput.value, {
+    const parsedCategories = parseCategories(state.categories, {
       removeDuplicates: settings.removeDuplicates,
     });
 
-    if (participants.length === 0) {
-      renderError(errorNode, "Enter at least one name to create teams.");
+    if (countParticipants(parsedCategories) === 0) {
+      renderError(errorNode, "Enter at least one name in any category to create teams.");
       renderGroups(resultsNode, []);
       persistState({ groups: [] });
       return;
     }
 
-    const shuffled = fisherYatesShuffle(participants);
-    const groups = allocateTeams(shuffled, settings);
+    const shuffledCategories = parsedCategories.map((category) => ({
+      ...category,
+      members: fisherYatesShuffle(category.members),
+    }));
+
+    const groups = allocateTeams(shuffledCategories, settings);
     renderError(errorNode, "");
     renderGroups(resultsNode, groups);
     flashStage();
@@ -140,7 +224,60 @@ function initialize() {
     tooltipNode.hidden = true;
     persistState({ tooltipDismissed: true });
     settingsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
-    namesInput.focus({ preventScroll: true });
+    const firstTextarea = categoriesContainer.querySelector(".tg-category-textarea");
+    if (firstTextarea) {
+      firstTextarea.focus({ preventScroll: true });
+    }
+  }
+
+  function updateCategoryField(categoryId, field, value) {
+    const categories = state.categories.map((category, index) => {
+      if (category.id !== categoryId) {
+        return category;
+      }
+
+      if (field === "title") {
+        const text = String(value || "");
+        return {
+          ...category,
+          title: text.length > 0 ? text : `Category ${index + 1}`,
+        };
+      }
+
+      return {
+        ...category,
+        text: String(value || ""),
+      };
+    });
+
+    persistState({ categories });
+  }
+
+  function addCategory() {
+    const nextId = Number.parseInt(String(state.nextCategoryId || 2), 10) || 2;
+    const newCategory = createCategory(nextId, state.categories.length);
+    const categories = [...state.categories, newCategory];
+    persistState({
+      categories,
+      nextCategoryId: nextId + 1,
+    });
+    renderCategories();
+
+    const addedTextarea = categoriesContainer.querySelector(`[data-category-id="${newCategory.id}"] .tg-category-textarea`);
+    if (addedTextarea) {
+      addedTextarea.focus();
+    }
+  }
+
+  function removeCategory(categoryId) {
+    const index = state.categories.findIndex((category) => category.id === categoryId);
+    if (index <= 0) {
+      return;
+    }
+
+    const categories = state.categories.filter((category) => category.id !== categoryId);
+    persistState({ categories });
+    renderCategories();
   }
 
   form.addEventListener("submit", (event) => {
@@ -153,10 +290,60 @@ function initialize() {
     persistState();
   });
 
-  [namesInput, teamCountInput, teamSizeInput, removeDuplicatesInput].forEach((field) => {
+  [teamCountInput, teamSizeInput, removeDuplicatesInput].forEach((field) => {
     field.addEventListener("input", () => persistState());
     field.addEventListener("change", () => persistState());
   });
+
+  categoriesContainer.addEventListener("input", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const field = target.getAttribute("data-category-field");
+    if (!field) {
+      return;
+    }
+
+    const item = target.closest("[data-category-id]");
+    if (!item) {
+      return;
+    }
+
+    const categoryId = Number.parseInt(item.getAttribute("data-category-id"), 10);
+    if (!Number.isFinite(categoryId)) {
+      return;
+    }
+
+    updateCategoryField(categoryId, field, target.value);
+  });
+
+  categoriesContainer.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const button = target.closest("[data-action='remove-category']");
+    if (!button) {
+      return;
+    }
+
+    const item = button.closest("[data-category-id]");
+    if (!item) {
+      return;
+    }
+
+    const categoryId = Number.parseInt(item.getAttribute("data-category-id"), 10);
+    if (!Number.isFinite(categoryId)) {
+      return;
+    }
+
+    removeCategory(categoryId);
+  });
+
+  addCategoryButton.addEventListener("click", addCategory);
 
   rerunButtons.forEach((button) => {
     button.addEventListener("click", generateTeams);

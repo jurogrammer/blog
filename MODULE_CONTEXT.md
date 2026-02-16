@@ -5,7 +5,7 @@
 
 # Internal Architecture
 - Package structure: Content-first Hugo layout with section folders under `content/`, template overrides under `layouts/`, static artifacts under `static/`; Team Generator assets live in `static/tools/team-generator/`.
-- Key classes/components: Hugo page templates/partials, page front matter, browser scripts for interactive tools; Team Generator uses `parser.js`, `shuffle.js`, `allocator.js`, `storage.js`, `render.js`, `app.js`.
+- Key classes/components: Hugo page templates/partials, page front matter, browser scripts for interactive tools; Team Generator uses `parser.js` (category parsing), `shuffle.js`, `allocator.js` (category round-robin), `storage.js` (schema v2), `render.js`, `app.js`.
 - Domain model summary: Content pages (posts/tool pages) rendered into static HTML with optional client-state in browser storage.
 
 # APIs (If applicable)
@@ -15,7 +15,7 @@
 
 # Data
 - Tables / Collections owned: None (no backend persistence).
-- Schema notes: Tool state persisted in `localStorage` using scoped keys (`team-generator.state` for Team Generator input/options/results).
+- Schema notes: Tool state persisted in `localStorage` using scoped keys (`team-generator.state` for Team Generator categories/options/results). Schema v2 stores category id/title/text arrays.
 - Migration strategy: Version localStorage payloads via `version` field when structure changes.
 
 # Configuration
@@ -30,17 +30,23 @@
 # Module Conventions
 - Module-specific patterns: For tools, keep behavior in standalone JS files and avoid framework/runtime dependencies.
 - Error boundaries: Keep UI operable on invalid input and display inline validation text.
-- Validation rules: Parse participant input robustly (newline/comma delimiters, trimming, empty-entry filtering).
+- Validation rules: Parse category input robustly (newline/comma delimiters inside each category, trimming, empty-entry filtering, optional global duplicate removal).
 
 # Assumptions / Decisions
 - This repository is treated as a single module until additional independently deployable modules are introduced.
 - Tool pages should not rely on server-side runtime logic beyond static Hugo rendering.
 - Team Generator styles are namespaced with `tg-` classes to avoid collision with PaperMod global styles.
+- In Team Generator, category 1 block is always present (not removable), and additional category blocks are user-managed dynamically.
 
 # Known Issues
 - Local environments may miss `hugo` CLI and require temporary binary download for render checks.
 
 # Change Log (Last 10)
+- 2026-02-16: Simplified Team Generator textarea sizing CSS by removing redundant per-category `min-height` declaration.
+- 2026-02-16: Standardized category textarea min-height at `84px` across both category-specific and shared textarea selectors.
+- 2026-02-16: Corrected textarea sizing by reducing shared `.tg-layout-settings textarea` min-height to match compact category-entry design.
+- 2026-02-16: Tuned category member textarea size by lowering minimum height for denser category entry UI.
+- 2026-02-16: Reworked Team Generator form to dynamic category blocks (`+ Add Category`, per-category title/edit/delete) and replaced flat allocation with category-based round-robin distribution.
 - 2026-02-16: Updated Team Generator form UI colors by forcing white form-control backgrounds and native-like gray borders; dataset selector now renders as enabled to match reference visuals.
 - 2026-02-16: Implemented Team Generator page (`content/tools/team-generator/index.md`) with dedicated layout and modular vanilla JS/CSS under `static/tools/team-generator/`.
 - 2026-02-16: Created initial module context for `blog-site` and documented runtime/config conventions.

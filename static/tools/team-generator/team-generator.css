@@ -148,10 +148,12 @@
 }
 
 @keyframes tg-tooltip-bounce {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-8px);
   }
@@ -269,7 +271,7 @@
     align-items: flex-start;
   }
 
-  .tg-layout-bottom > * {
+  .tg-layout-bottom>* {
     width: calc(50% - 1.5rem);
   }
 }
@@ -287,6 +289,70 @@
 
 .tg-layout-settings p {
   margin: 0.9rem 0;
+}
+
+.tg-categories-field {
+  margin: 0.9rem 0;
+}
+
+.tg-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.tg-category-item {
+  border: 1px solid #dddddd;
+  background: #fbfbfb;
+  padding: 0.7rem;
+}
+
+.tg-category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.tg-category-title-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.tg-category-textarea {
+  width: 100%;
+}
+
+.tg-category-remove-btn {
+  border: 0;
+  background: transparent;
+  color: #666666;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 3px 0;
+}
+
+.tg-category-remove-btn:hover {
+  color: var(--tg-color-bad);
+}
+
+.tg-button-secondary {
+  margin-top: 0.7rem;
+  border: 1px solid #767676;
+  background: #ffffff;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  font-size: 13.3333px;
+  line-height: normal;
+  padding: 7.5px 12px;
+  cursor: pointer;
+}
+
+.tg-button-secondary:hover {
+  background: #f5f5f5;
 }
 
 .tg-layout-settings label {
@@ -313,7 +379,7 @@
 }
 
 .tg-layout-settings textarea {
-  min-height: 200px;
+  min-height: 150px;
   width: 100%;
   resize: vertical;
   padding: 7.5px;
