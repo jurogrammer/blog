@@ -1,0 +1,4 @@
+# Keep local links on localhost while preserving the production base config.
+# baseURL is injected dynamically by scripts/dev-local.sh based on the selected port.
+canonifyURLs = false
+relativeURLs = false

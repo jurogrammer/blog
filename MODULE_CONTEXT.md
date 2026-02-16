@@ -20,10 +20,10 @@
 
 # Configuration
 - Required env vars: None for runtime; CI uses `HUGO_ENVIRONMENT=production`.
-- Module-specific configs: `hugo.toml` defines `baseURL`, theme, menus, markup.
+- Module-specific configs: `hugo.toml` defines production settings; `hugo.local.toml` carries local URL behavior flags, while `scripts/dev-local.sh` injects local `baseURL` per selected port.
 
 # Runtime
-- How to run this module locally: `hugo server` from repository root.
+- How to run this module locally: `./scripts/dev-local.sh [port]` (recommended) or `hugo server`.
 - Ports: Default Hugo dev server (`1313`) unless overridden.
 - Profiles: Development (`hugo server`) and production build (`hugo --minify`).
 
@@ -42,6 +42,9 @@
 - Local environments may miss `hugo` CLI and require temporary binary download for render checks.
 
 # Change Log (Last 10)
+- 2026-02-16: Changed local dev startup to dynamic `--baseURL` injection per port in `scripts/dev-local.sh` and removed fixed port from `hugo.local.toml`.
+- 2026-02-16: Added local-run helper script (`scripts/dev-local.sh`) and local config override (`hugo.local.toml`) to prevent production URL redirects during localhost development.
+- 2026-02-16: Updated global main menu config to include `/tools/` entry for direct navigation to tool pages.
 - 2026-02-16: Simplified Team Generator textarea sizing CSS by removing redundant per-category `min-height` declaration.
 - 2026-02-16: Standardized category textarea min-height at `84px` across both category-specific and shared textarea selectors.
 - 2026-02-16: Corrected textarea sizing by reducing shared `.tg-layout-settings textarea` min-height to match compact category-entry design.

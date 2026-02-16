@@ -48,6 +48,9 @@
 - Local environments without Hugo installed must use a temporary binary or CI for full render verification.
 
 # Change Log (Last 10)
+- 2026-02-16: Updated local dev launcher to set `baseURL` dynamically from the requested port so navigation remains localhost-safe on any port.
+- 2026-02-16: Added `hugo.local.toml` and `scripts/dev-local.sh` for localhost-safe development links (`http://localhost:<port>/blog/`) without touching production `baseURL`.
+- 2026-02-16: Added `Tools` to the top navigation menu in `hugo.toml` so tool pages are discoverable from the global header.
 - 2026-02-16: Removed redundant category textarea `min-height` override and kept a single shared textarea sizing rule for Team Generator settings.
 - 2026-02-16: Unified category textarea sizing rules to `84px` minimum height to avoid selector conflicts and ensure compact input boxes.
 - 2026-02-16: Fixed category textarea height override by lowering the shared Team Generator textarea minimum height so compact category entry displays correctly.

@@ -66,6 +66,12 @@ name = "General"
 url = "/general"
 weight = 1
 
+[[menu.main]]
+identifier = "Tools"
+name = "Tools"
+url = "/tools/"
+weight = 1
+
 
 [[menu.main]]
 identifier = "tags"
