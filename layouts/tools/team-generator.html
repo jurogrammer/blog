@@ -57,14 +57,15 @@
     <div class="tg-layout-bottom">
       <div class="tg-layout-settings" id="settings-panel">
         <h2>Edit Settings</h2>
-        <p>
-          <label for="dataset-select">Dataset:</label>
-          <select id="dataset-select">
-            <option selected>Team Generator</option>
-          </select>
-        </p>
-
         <form id="team-generator-form" novalidate>
+          <p id="team-count-row" data-mode-field="team-count">
+            <label for="team-count-input">Groups</label>
+            <input id="team-count-input" name="teamCount" type="number" min="1" step="1" inputmode="numeric">
+          </p>
+          <p id="team-size-row" data-mode-field="team-size" hidden>
+            <label for="team-size-input">Members per team</label>
+            <input id="team-size-input" name="teamSize" type="number" min="1" step="1" inputmode="numeric">
+          </p>
           <div class="tg-categories-field">
             <label for="categories-container">Categories</label>
             <div id="categories-container" class="tg-categories" aria-live="polite"></div>
@@ -76,14 +77,6 @@
               <option value="team-count">Split by number of teams</option>
               <option value="team-size">Split by members per team</option>
             </select>
-          </p>
-          <p id="team-count-row" data-mode-field="team-count">
-            <label for="team-count-input">Groups</label>
-            <input id="team-count-input" name="teamCount" type="number" min="1" step="1" inputmode="numeric">
-          </p>
-          <p id="team-size-row" data-mode-field="team-size" hidden>
-            <label for="team-size-input">Members per team</label>
-            <input id="team-size-input" name="teamSize" type="number" min="1" step="1" inputmode="numeric">
           </p>
           <p>
             <label class="tg-checkbox-row" for="remove-duplicates">

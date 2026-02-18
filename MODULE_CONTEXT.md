@@ -44,6 +44,7 @@
 - Local environments may miss `hugo` CLI and require temporary binary download for render checks.
 
 # Change Log (Last 10)
+- 2026-02-18: Removed Edit Settings `Dataset` dropdown and moved `Groups`/`Members per team` mode fields to the top of the Team Generator form.
 - 2026-02-18: Overrode category member textarea min-height to `96px` (`.tg-layout-settings .tg-category-textarea`) so per-category name input boxes render smaller than shared textareas.
 - 2026-02-18: Updated Team Generator allocator to randomize same-size category order and initial team cursor so singleton categories and overflow slots do not always land on fixed groups.
 - 2026-02-16: Strengthened Team Generator category `DELETE` affordance using danger-toned outlined button styling with explicit hover/focus emphasis.
@@ -53,4 +54,3 @@
 - 2026-02-16: Simplified Team Generator textarea sizing CSS by removing redundant per-category `min-height` declaration.
 - 2026-02-16: Standardized category textarea min-height at `84px` across both category-specific and shared textarea selectors.
 - 2026-02-16: Corrected textarea sizing by reducing shared `.tg-layout-settings textarea` min-height to match compact category-entry design.
-- 2026-02-16: Tuned category member textarea size by lowering minimum height for denser category entry UI.

@@ -48,6 +48,7 @@
 - Local environments without Hugo installed must use a temporary binary or CI for full render verification.
 
 # Change Log (Last 10)
+- 2026-02-18: Removed Team Generator `Dataset` selector from Edit Settings and moved the `Groups` control into the top settings slot.
 - 2026-02-18: Reduced Team Generator per-category member name input textarea default height to `96px` for a denser category entry UI.
 - 2026-02-18: Reduced Team Generator fixed-team bias by randomizing allocation start team and same-size category order while keeping category-balanced round-robin behavior.
 - 2026-02-16: Improved Team Generator category delete button visibility with emphasized danger styling (outlined red button, stronger contrast, clearer hover/focus states).
@@ -57,4 +58,3 @@
 - 2026-02-16: Removed redundant category textarea `min-height` override and kept a single shared textarea sizing rule for Team Generator settings.
 - 2026-02-16: Unified category textarea sizing rules to `84px` minimum height to avoid selector conflicts and ensure compact input boxes.
 - 2026-02-16: Fixed category textarea height override by lowering the shared Team Generator textarea minimum height so compact category entry displays correctly.
-- 2026-02-16: Reduced per-category member textarea minimum height to better fit category-based input workflow.
