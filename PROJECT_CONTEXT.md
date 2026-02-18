@@ -30,6 +30,7 @@
 - Database separation strategy: No server database; browser `localStorage` for per-device preferences/state.
 - Transaction boundaries: Single-page UI actions are atomic in-memory updates followed by optional storage persist.
 - Event consistency model: Immediate consistency within current browser session.
+- Onboarding UX state is stored as non-invasive `localStorage` flags to gate one-time guidance without affecting core tool data.
 
 # Cross-Cutting Concerns
 - Authentication: None for readers/tool users.
@@ -43,11 +44,13 @@
 - Team Generator will remain fully client-side to preserve static hosting constraints.
 - Team Generator UI is implemented in namespaced CSS/JS under `static/tools/team-generator/` and mounted by a dedicated Hugo layout.
 - Team Generator participant input model is category-first (multiple category blocks with titles), and allocation uses category-balanced round-robin with randomized same-size category order and randomized starting team offset to avoid fixed-team bias.
+- Existing users are identified by presence of persisted Team Generator state; first-run onboarding popups can therefore target only return users.
 
 # Known Issues
 - Local environments without Hugo installed must use a temporary binary or CI for full render verification.
 
 # Change Log (Last 10)
+- 2026-02-18: Added a one-time, existing-user-only in-app hint for the `Groups` setting position change.
 - 2026-02-18: Removed Team Generator `Dataset` selector from Edit Settings and moved the `Groups` control into the top settings slot.
 - 2026-02-18: Reduced Team Generator per-category member name input textarea default height to `96px` for a denser category entry UI.
 - 2026-02-18: Reduced Team Generator fixed-team bias by randomizing allocation start team and same-size category order while keeping category-balanced round-robin behavior.
@@ -57,4 +60,3 @@
 - 2026-02-16: Added `Tools` to the top navigation menu in `hugo.toml` so tool pages are discoverable from the global header.
 - 2026-02-16: Removed redundant category textarea `min-height` override and kept a single shared textarea sizing rule for Team Generator settings.
 - 2026-02-16: Unified category textarea sizing rules to `84px` minimum height to avoid selector conflicts and ensure compact input boxes.
-- 2026-02-16: Fixed category textarea height override by lowering the shared Team Generator textarea minimum height so compact category entry displays correctly.

@@ -1,8 +1,11 @@
 import { parseCategories, countParticipants } from "./parser.js";
 import { fisherYatesShuffle } from "./shuffle.js";
 import { allocateTeams } from "./allocator.js";
-import { createDefaultState, loadState, saveState } from "./storage.js";
+import { STORAGE_KEY, createDefaultState, loadState, saveState } from "./storage.js";
 import { groupsToPlainText, renderError, renderGroups } from "./render.js";
+
+const GROUPS_MOVE_HINT_STORAGE_KEY = "team-generator.groups-move-tooltip-dismissed";
+const GROUPS_MOVE_HINT_STORAGE_VALUE = "1";
 
 function toPositiveInteger(value, fallback = 1) {
   const parsed = Number.parseInt(value, 10);
@@ -69,6 +72,26 @@ function copyTextToClipboard(text) {
   return Promise.resolve(copied);
 }
 
+function hasExistingToolState() {
+  return typeof window !== "undefined" && Boolean(window.localStorage && window.localStorage.getItem(STORAGE_KEY));
+}
+
+function hasSeenGroupsMoveTooltip() {
+  if (typeof window === "undefined" || !window.localStorage) {
+    return true;
+  }
+
+  return window.localStorage.getItem(GROUPS_MOVE_HINT_STORAGE_KEY) === GROUPS_MOVE_HINT_STORAGE_VALUE;
+}
+
+function markGroupsMoveTooltipSeen() {
+  if (typeof window === "undefined" || !window.localStorage) {
+    return;
+  }
+
+  window.localStorage.setItem(GROUPS_MOVE_HINT_STORAGE_KEY, GROUPS_MOVE_HINT_STORAGE_VALUE);
+}
+
 function initialize() {
   const root = document.querySelector("[data-team-generator]");
   if (!root) {
@@ -89,10 +112,16 @@ function initialize() {
   const stageNode = root.querySelector("#team-stage");
   const tooltipNode = root.querySelector("[data-role='edit-tooltip']");
   const settingsPanel = root.querySelector("#settings-panel");
+  const groupsMoveTooltip = root.querySelector("[data-role='groups-move-tooltip']");
+  const groupsMoveTooltipClose = root.querySelector("[data-action='dismiss-groups-tip']");
   const rerunButtons = root.querySelectorAll("[data-action='rerun']");
   const editButtons = root.querySelectorAll("[data-action='edit']");
   const copyButton = root.querySelector("[data-action='copy']");
   const resetButton = root.querySelector("[data-action='reset']");
+
+  function shouldShowGroupsMoveTooltip() {
+    return hasExistingToolState() && !hasSeenGroupsMoveTooltip();
+  }
 
   let state = loadState();
 
@@ -142,6 +171,15 @@ function initialize() {
     const mode = modeSelect.value === "team-size" ? "team-size" : "team-count";
     teamCountRow.hidden = mode !== "team-count";
     teamSizeRow.hidden = mode !== "team-size";
+
+    if (teamCountRow.hidden && groupsMoveTooltip) {
+      groupsMoveTooltip.hidden = true;
+      return;
+    }
+
+    if (shouldShowGroupsMoveTooltip() && groupsMoveTooltip) {
+      groupsMoveTooltip.hidden = false;
+    }
   }
 
   function flashStage() {
@@ -222,6 +260,10 @@ function initialize() {
 
   function moveToEditor() {
     tooltipNode.hidden = true;
+    if (groupsMoveTooltip) {
+      groupsMoveTooltip.hidden = true;
+      markGroupsMoveTooltipSeen();
+    }
     persistState({ tooltipDismissed: true });
     settingsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
     const firstTextarea = categoriesContainer.querySelector(".tg-category-textarea");
@@ -369,8 +411,20 @@ function initialize() {
     generateTeams();
   });
 
+  if (groupsMoveTooltipClose) {
+    groupsMoveTooltipClose.addEventListener("click", () => {
+      if (groupsMoveTooltip) {
+        groupsMoveTooltip.hidden = true;
+      }
+      markGroupsMoveTooltipSeen();
+    });
+  }
+
   applyStateToInputs();
   syncModeFieldVisibility();
+  if (shouldShowGroupsMoveTooltip() && !teamCountRow.hidden && groupsMoveTooltip) {
+    groupsMoveTooltip.hidden = false;
+  }
 
   if (state.groups.length > 0) {
     renderGroups(resultsNode, state.groups);

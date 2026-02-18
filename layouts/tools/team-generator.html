@@ -61,6 +61,12 @@
           <p id="team-count-row" data-mode-field="team-count">
             <label for="team-count-input">Groups</label>
             <input id="team-count-input" name="teamCount" type="number" min="1" step="1" inputmode="numeric">
+            <span class="tg-groups-move-tooltip" data-role="groups-move-tooltip" hidden>
+              Groups is now at the top of Edit Settings so you can adjust team count quickly.
+              <button type="button" class="tg-groups-move-tooltip__close" data-action="dismiss-groups-tip">
+                Got it
+              </button>
+            </span>
           </p>
           <p id="team-size-row" data-mode-field="team-size" hidden>
             <label for="team-size-input">Members per team</label>

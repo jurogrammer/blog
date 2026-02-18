@@ -15,8 +15,9 @@
 
 # Data
 - Tables / Collections owned: None (no backend persistence).
-- Schema notes: Tool state persisted in `localStorage` using scoped keys (`team-generator.state` for Team Generator categories/options/results). Schema v2 stores category id/title/text arrays.
+- Schema notes: Tool state persisted in `localStorage` using scoped key `team-generator.state` for categories/options/results; schema v2 stores category id/title/text arrays.
 - Migration strategy: Version localStorage payloads via `version` field when structure changes.
+- Guidance flags: New one-time onboarding hint flag `team-generator.groups-move-tooltip-dismissed` is tracked separately to avoid changing the legacy state payload.
 
 # Configuration
 - Required env vars: None for runtime; CI uses `HUGO_ENVIRONMENT=production`.
@@ -39,11 +40,13 @@
 - In Team Generator, category 1 block is always present (not removable), and additional category blocks are user-managed dynamically.
 - Team Generator allocator preserves member-count balancing per category while randomizing same-size category processing order and start-team offset on each run to reduce fixed placement patterns.
 - Team Generator category member input fields intentionally override the shared textarea minimum height to keep category data-entry density compact.
+- Existing-user onboarding for UI layout changes is surfaced only when prior persisted Team Generator state exists, and only once per user/device.
 
 # Known Issues
 - Local environments may miss `hugo` CLI and require temporary binary download for render checks.
 
 # Change Log (Last 10)
+- 2026-02-18: Added first-visit existing-user tooltip hint near `Groups` input explaining its new location in Edit Settings.
 - 2026-02-18: Removed Edit Settings `Dataset` dropdown and moved `Groups`/`Members per team` mode fields to the top of the Team Generator form.
 - 2026-02-18: Overrode category member textarea min-height to `96px` (`.tg-layout-settings .tg-category-textarea`) so per-category name input boxes render smaller than shared textareas.
 - 2026-02-18: Updated Team Generator allocator to randomize same-size category order and initial team cursor so singleton categories and overflow slots do not always land on fixed groups.
@@ -53,4 +56,3 @@
 - 2026-02-16: Updated global main menu config to include `/tools/` entry for direct navigation to tool pages.
 - 2026-02-16: Simplified Team Generator textarea sizing CSS by removing redundant per-category `min-height` declaration.
 - 2026-02-16: Standardized category textarea min-height at `84px` across both category-specific and shared textarea selectors.
-- 2026-02-16: Corrected textarea sizing by reducing shared `.tg-layout-settings textarea` min-height to match compact category-entry design.
