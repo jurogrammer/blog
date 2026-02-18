@@ -319,8 +319,9 @@
   min-width: 0;
 }
 
-.tg-category-textarea {
+.tg-layout-settings .tg-category-textarea {
   width: 100%;
+  min-height: 96px;
 }
 
 .tg-category-remove-btn {
