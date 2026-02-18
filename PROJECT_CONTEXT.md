@@ -42,12 +42,13 @@
 - The repository currently operates as a single module (`blog-site`) rooted at project root.
 - Team Generator will remain fully client-side to preserve static hosting constraints.
 - Team Generator UI is implemented in namespaced CSS/JS under `static/tools/team-generator/` and mounted by a dedicated Hugo layout.
-- Team Generator participant input model is category-first (multiple category blocks with titles), and allocation prioritizes category-balanced round-robin distribution.
+- Team Generator participant input model is category-first (multiple category blocks with titles), and allocation uses category-balanced round-robin with randomized same-size category order and randomized starting team offset to avoid fixed-team bias.
 
 # Known Issues
 - Local environments without Hugo installed must use a temporary binary or CI for full render verification.
 
 # Change Log (Last 10)
+- 2026-02-18: Reduced Team Generator fixed-team bias by randomizing allocation start team and same-size category order while keeping category-balanced round-robin behavior.
 - 2026-02-16: Improved Team Generator category delete button visibility with emphasized danger styling (outlined red button, stronger contrast, clearer hover/focus states).
 - 2026-02-16: Updated local dev launcher to set `baseURL` dynamically from the requested port so navigation remains localhost-safe on any port.
 - 2026-02-16: Added `hugo.local.toml` and `scripts/dev-local.sh` for localhost-safe development links (`http://localhost:<port>/blog/`) without touching production `baseURL`.
@@ -57,4 +58,3 @@
 - 2026-02-16: Fixed category textarea height override by lowering the shared Team Generator textarea minimum height so compact category entry displays correctly.
 - 2026-02-16: Reduced per-category member textarea minimum height to better fit category-based input workflow.
 - 2026-02-16: Migrated Team Generator from single list input to multi-category input and introduced category-aware round-robin allocation with localStorage schema v2.
-- 2026-02-16: Adjusted Team Generator form control styling to explicit light theme values (white input backgrounds, native-like borders) and enabled dataset selector visual state for UI parity.

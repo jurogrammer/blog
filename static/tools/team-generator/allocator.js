@@ -6,6 +6,35 @@ function toPositiveInteger(value, fallback = 1) {
   return parsed;
 }
 
+function shuffleCopy(items, random) {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(random() * (index + 1));
+    [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
+  }
+  return result;
+}
+
+function orderCategoriesForAllocation(categories, random) {
+  const bucketsBySize = new Map();
+
+  categories.forEach((category) => {
+    const size = category.members.length;
+    if (!bucketsBySize.has(size)) {
+      bucketsBySize.set(size, []);
+    }
+    bucketsBySize.get(size).push(category);
+  });
+
+  return [...bucketsBySize.entries()]
+    .sort((left, right) => right[0] - left[0])
+    .flatMap(([, bucket]) => shuffleCopy(bucket, random));
+}
+
+function resolveRandom(settings) {
+  return typeof settings?.random === "function" ? settings.random : Math.random;
+}
+
 function countParticipants(categories) {
   if (!Array.isArray(categories)) {
     return 0;
@@ -26,18 +55,12 @@ function resolveTeamCount(totalParticipants, settings) {
   return Math.min(requestedCount, totalParticipants);
 }
 
-function allocateByCategoryRoundRobin(categories, teamCount) {
+function allocateByCategoryRoundRobin(categories, teamCount, random) {
   const groups = Array.from({ length: teamCount }, () => []);
-  const sorted = [...categories].sort((left, right) => {
-    if (right.members.length !== left.members.length) {
-      return right.members.length - left.members.length;
-    }
-    return left.title.localeCompare(right.title);
-  });
+  const ordered = orderCategoriesForAllocation(categories, random);
+  let teamCursor = Math.floor(random() * teamCount);
 
-  let teamCursor = 0;
-
-  sorted.forEach((category) => {
+  ordered.forEach((category) => {
     category.members.forEach((member) => {
       groups[teamCursor % teamCount].push(member);
       teamCursor += 1;
@@ -60,5 +83,6 @@ export function allocateTeams(categories, settings) {
   }
 
   const teamCount = resolveTeamCount(totalParticipants, settings);
-  return allocateByCategoryRoundRobin(filtered, teamCount);
+  const random = resolveRandom(settings);
+  return allocateByCategoryRoundRobin(filtered, teamCount, random);
 }

@@ -37,11 +37,13 @@
 - Tool pages should not rely on server-side runtime logic beyond static Hugo rendering.
 - Team Generator styles are namespaced with `tg-` classes to avoid collision with PaperMod global styles.
 - In Team Generator, category 1 block is always present (not removable), and additional category blocks are user-managed dynamically.
+- Team Generator allocator preserves member-count balancing per category while randomizing same-size category processing order and start-team offset on each run to reduce fixed placement patterns.
 
 # Known Issues
 - Local environments may miss `hugo` CLI and require temporary binary download for render checks.
 
 # Change Log (Last 10)
+- 2026-02-18: Updated Team Generator allocator to randomize same-size category order and initial team cursor so singleton categories and overflow slots do not always land on fixed groups.
 - 2026-02-16: Strengthened Team Generator category `DELETE` affordance using danger-toned outlined button styling with explicit hover/focus emphasis.
 - 2026-02-16: Changed local dev startup to dynamic `--baseURL` injection per port in `scripts/dev-local.sh` and removed fixed port from `hugo.local.toml`.
 - 2026-02-16: Added local-run helper script (`scripts/dev-local.sh`) and local config override (`hugo.local.toml`) to prevent production URL redirects during localhost development.
@@ -51,4 +53,3 @@
 - 2026-02-16: Corrected textarea sizing by reducing shared `.tg-layout-settings textarea` min-height to match compact category-entry design.
 - 2026-02-16: Tuned category member textarea size by lowering minimum height for denser category entry UI.
 - 2026-02-16: Reworked Team Generator form to dynamic category blocks (`+ Add Category`, per-category title/edit/delete) and replaced flat allocation with category-based round-robin distribution.
-- 2026-02-16: Updated Team Generator form UI colors by forcing white form-control backgrounds and native-like gray borders; dataset selector now renders as enabled to match reference visuals.
