@@ -1,7 +1,7 @@
 import { parseCategories, countParticipants } from "./parser.js";
 import { fisherYatesShuffle } from "./shuffle.js";
-import { allocateTeams } from "./allocator.js";
-import { STORAGE_KEY, createDefaultState, loadState, saveState } from "./storage.js";
+import { allocateTeams, recordMatchHistory } from "./allocator.js";
+import { STORAGE_KEY, createDefaultState, loadState, saveState, loadMatchHistory, saveMatchHistory, clearMatchHistory } from "./storage.js";
 import { groupsToPlainText, renderError, renderGroups } from "./render.js";
 
 const GROUPS_MOVE_HINT_STORAGE_KEY = "team-generator.groups-move-tooltip-dismissed";
@@ -246,15 +246,24 @@ function initialize() {
       return;
     }
 
+    const matchHistory = loadMatchHistory();
+
     const shuffledCategories = parsedCategories.map((category) => ({
       ...category,
       members: fisherYatesShuffle(category.members),
     }));
 
-    const groups = allocateTeams(shuffledCategories, settings);
+    const groups = allocateTeams(shuffledCategories, {
+      ...settings,
+      matchHistory,
+    });
     renderError(errorNode, "");
     renderGroups(resultsNode, groups);
     flashStage();
+
+    const updatedHistory = recordMatchHistory(groups, matchHistory);
+    saveMatchHistory(updatedHistory);
+
     persistState({ groups });
   }
 
@@ -405,6 +414,7 @@ function initialize() {
 
   resetButton.addEventListener("click", () => {
     state = createDefaultState();
+    clearMatchHistory();
     applyStateToInputs();
     syncModeFieldVisibility();
     renderError(errorNode, "");

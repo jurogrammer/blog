@@ -39,7 +39,28 @@ function resolveTeamCount(totalParticipants, settings) {
   return Math.min(requestedCount, totalParticipants);
 }
 
-function allocateByShuffleAndSwap(categories, teamCount, random) {
+function makePairKey(a, b) {
+  return a < b ? a + "::" + b : b + "::" + a;
+}
+
+function pairCost(history, a, b) {
+  if (!history) {
+    return 0;
+  }
+  return history[makePairKey(a, b)] || 0;
+}
+
+function groupCost(history, group) {
+  let cost = 0;
+  for (let i = 0; i < group.length; i += 1) {
+    for (let j = i + 1; j < group.length; j += 1) {
+      cost += pairCost(history, group[i].name, group[j].name);
+    }
+  }
+  return cost;
+}
+
+function allocateByShuffleAndSwap(categories, teamCount, random, history) {
   const tagged = categories.flatMap((category) =>
     category.members.map((member) => ({ name: member, catId: category.id }))
   );
@@ -51,8 +72,9 @@ function allocateByShuffleAndSwap(categories, teamCount, random) {
     groups[index % teamCount].push(member);
   });
 
-  const MAX_PASSES = 50;
-  for (let pass = 0; pass < MAX_PASSES; pass += 1) {
+  // Phase 1: fix same-category collisions
+  const MAX_CAT_PASSES = 50;
+  for (let pass = 0; pass < MAX_CAT_PASSES; pass += 1) {
     let swapped = false;
 
     for (let gi = 0; gi < groups.length; gi += 1) {
@@ -123,7 +145,112 @@ function allocateByShuffleAndSwap(categories, teamCount, random) {
     }
   }
 
+  // Phase 2: reduce history-heavy pairs by swapping (only when history exists)
+  if (history) {
+    const MAX_HIST_PASSES = 30;
+    for (let pass = 0; pass < MAX_HIST_PASSES; pass += 1) {
+      let improved = false;
+
+      for (let gi = 0; gi < groups.length; gi += 1) {
+        const group = groups[gi];
+        if (group.length < 2) {
+          continue;
+        }
+
+        if (groupCost(history, group) === 0) {
+          continue;
+        }
+
+        for (let mi = 0; mi < group.length; mi += 1) {
+          const member = group[mi];
+
+          const otherIndices = shuffleCopy(
+            Array.from({ length: teamCount }, (_, i) => i).filter((i) => i !== gi),
+            random
+          );
+
+          let didSwap = false;
+          for (const gj of otherIndices) {
+            const otherGroup = groups[gj];
+
+            for (let oi = 0; oi < otherGroup.length; oi += 1) {
+              const otherMember = otherGroup[oi];
+
+              // Check category constraints
+              const memberInOther = otherGroup.some(
+                (m, idx) => idx !== oi && m.catId === member.catId
+              );
+              if (memberInOther) {
+                continue;
+              }
+
+              const otherInGroup = group.some(
+                (m, idx) => idx !== mi && m.catId === otherMember.catId
+              );
+              if (otherInGroup) {
+                continue;
+              }
+
+              // Calculate cost change
+              let oldCost = 0;
+              let newCost = 0;
+              for (let k = 0; k < group.length; k += 1) {
+                if (k === mi) {
+                  continue;
+                }
+                oldCost += pairCost(history, member.name, group[k].name);
+                newCost += pairCost(history, otherMember.name, group[k].name);
+              }
+              for (let k = 0; k < otherGroup.length; k += 1) {
+                if (k === oi) {
+                  continue;
+                }
+                oldCost += pairCost(history, otherMember.name, otherGroup[k].name);
+                newCost += pairCost(history, member.name, otherGroup[k].name);
+              }
+
+              if (newCost < oldCost) {
+                group[mi] = otherMember;
+                otherGroup[oi] = member;
+                didSwap = true;
+                improved = true;
+                break;
+              }
+            }
+
+            if (didSwap) {
+              break;
+            }
+          }
+
+          if (didSwap) {
+            break;
+          }
+        }
+      }
+
+      if (!improved) {
+        break;
+      }
+    }
+  }
+
   return groups.map((group) => group.map((member) => member.name));
+}
+
+export function recordMatchHistory(groups, existingHistory) {
+  const history = { ...(existingHistory || {}) };
+
+  for (const group of groups) {
+    for (let i = 0; i < group.length; i += 1) {
+      for (let j = i + 1; j < group.length; j += 1) {
+        const key = makePairKey(group[i], group[j]);
+        history[key] = (history[key] || 0) + 1;
+      }
+    }
+  }
+
+  return history;
 }
 
 export function allocateTeams(categories, settings) {
@@ -142,5 +269,6 @@ export function allocateTeams(categories, settings) {
 
   const teamCount = resolveTeamCount(totalParticipants, settings);
   const random = resolveRandom(settings);
-  return allocateByShuffleAndSwap(filtered, teamCount, random);
+  const history = settings?.matchHistory || null;
+  return allocateByShuffleAndSwap(filtered, teamCount, random, history);
 }

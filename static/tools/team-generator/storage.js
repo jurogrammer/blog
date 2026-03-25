@@ -1,4 +1,5 @@
 export const STORAGE_KEY = "team-generator.state";
+export const HISTORY_STORAGE_KEY = "team-generator.match-history";
 
 const STORAGE_VERSION = 3;
 
@@ -152,4 +153,40 @@ export function saveState(state) {
   };
 
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+}
+
+export function loadMatchHistory() {
+  if (typeof window === "undefined" || !window.localStorage) {
+    return {};
+  }
+
+  try {
+    const raw = window.localStorage.getItem(HISTORY_STORAGE_KEY);
+    if (!raw) {
+      return {};
+    }
+    const parsed = JSON.parse(raw);
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+      return {};
+    }
+    return parsed;
+  } catch (error) {
+    return {};
+  }
+}
+
+export function saveMatchHistory(history) {
+  if (typeof window === "undefined" || !window.localStorage) {
+    return;
+  }
+
+  window.localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(history || {}));
+}
+
+export function clearMatchHistory() {
+  if (typeof window === "undefined" || !window.localStorage) {
+    return;
+  }
+
+  window.localStorage.removeItem(HISTORY_STORAGE_KEY);
 }
