@@ -509,6 +509,13 @@
   display: none;
 }
 
+.tg-footer {
+  text-align: right;
+  padding: 2rem var(--tg-gutter) 0;
+  color: #999999;
+  font-size: 11px;
+}
+
 @media (max-width: 520px) {
   .tg-page {
     padding-left: 0;
