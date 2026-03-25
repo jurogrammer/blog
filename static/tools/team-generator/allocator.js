@@ -15,22 +15,6 @@ function shuffleCopy(items, random) {
   return result;
 }
 
-function orderCategoriesForAllocation(categories, random) {
-  const bucketsBySize = new Map();
-
-  categories.forEach((category) => {
-    const size = category.members.length;
-    if (!bucketsBySize.has(size)) {
-      bucketsBySize.set(size, []);
-    }
-    bucketsBySize.get(size).push(category);
-  });
-
-  return [...bucketsBySize.entries()]
-    .sort((left, right) => right[0] - left[0])
-    .flatMap(([, bucket]) => shuffleCopy(bucket, random));
-}
-
 function resolveRandom(settings) {
   return typeof settings?.random === "function" ? settings.random : Math.random;
 }
@@ -55,19 +39,91 @@ function resolveTeamCount(totalParticipants, settings) {
   return Math.min(requestedCount, totalParticipants);
 }
 
-function allocateByCategoryRoundRobin(categories, teamCount, random) {
-  const groups = Array.from({ length: teamCount }, () => []);
-  const ordered = orderCategoriesForAllocation(categories, random);
-  let teamCursor = Math.floor(random() * teamCount);
+function allocateByShuffleAndSwap(categories, teamCount, random) {
+  const tagged = categories.flatMap((category) =>
+    category.members.map((member) => ({ name: member, catId: category.id }))
+  );
 
-  ordered.forEach((category) => {
-    category.members.forEach((member) => {
-      groups[teamCursor % teamCount].push(member);
-      teamCursor += 1;
-    });
+  const shuffled = shuffleCopy(tagged, random);
+
+  const groups = Array.from({ length: teamCount }, () => []);
+  shuffled.forEach((member, index) => {
+    groups[index % teamCount].push(member);
   });
 
-  return groups;
+  const MAX_PASSES = 50;
+  for (let pass = 0; pass < MAX_PASSES; pass += 1) {
+    let swapped = false;
+
+    for (let gi = 0; gi < groups.length; gi += 1) {
+      const group = groups[gi];
+      const catCounts = {};
+      for (const member of group) {
+        catCounts[member.catId] = (catCounts[member.catId] || 0) + 1;
+      }
+
+      const duplicate = Object.entries(catCounts).find(([, count]) => count > 1);
+      if (!duplicate) {
+        continue;
+      }
+
+      const dupCatId = Number(duplicate[0]);
+      const swapOutIdx = group.findLastIndex((member) => member.catId === dupCatId);
+      const swapOut = group[swapOutIdx];
+
+      const otherIndices = shuffleCopy(
+        Array.from({ length: teamCount }, (_, i) => i).filter((i) => i !== gi),
+        random
+      );
+
+      let didSwap = false;
+      for (const gj of otherIndices) {
+        const otherGroup = groups[gj];
+        if (otherGroup.some((member) => member.catId === dupCatId)) {
+          continue;
+        }
+
+        const candidates = shuffleCopy(
+          Array.from({ length: otherGroup.length }, (_, i) => i),
+          random
+        );
+
+        for (const ci of candidates) {
+          const swapIn = otherGroup[ci];
+
+          const wouldConflictInGroup = group.some(
+            (member, idx) => idx !== swapOutIdx && member.catId === swapIn.catId
+          );
+          if (wouldConflictInGroup) {
+            continue;
+          }
+
+          const wouldConflictInOther = otherGroup.some(
+            (member, idx) => idx !== ci && member.catId === swapOut.catId
+          );
+          if (wouldConflictInOther) {
+            continue;
+          }
+
+          group[swapOutIdx] = swapIn;
+          otherGroup[ci] = swapOut;
+          didSwap = true;
+          swapped = true;
+          break;
+        }
+
+        if (didSwap) {
+          break;
+        }
+      }
+    }
+
+    if (!swapped) {
+      break;
+    }
+  }
+
+  return groups.map((group) => group.map((member) => member.name));
 }
 
 export function allocateTeams(categories, settings) {
@@ -75,7 +131,9 @@ export function allocateTeams(categories, settings) {
     return [];
   }
 
-  const filtered = categories.filter((category) => Array.isArray(category.members) && category.members.length > 0);
+  const filtered = categories.filter(
+    (category) => Array.isArray(category.members) && category.members.length > 0
+  );
   const totalParticipants = countParticipants(filtered);
 
   if (totalParticipants === 0) {
@@ -84,5 +142,5 @@ export function allocateTeams(categories, settings) {
 
   const teamCount = resolveTeamCount(totalParticipants, settings);
   const random = resolveRandom(settings);
-  return allocateByCategoryRoundRobin(filtered, teamCount, random);
+  return allocateByShuffleAndSwap(filtered, teamCount, random);
 }

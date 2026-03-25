@@ -1,6 +1,6 @@
 export const STORAGE_KEY = "team-generator.state";
 
-const STORAGE_VERSION = 2;
+const STORAGE_VERSION = 3;
 
 const DEFAULT_NAMES = [
   "Bruce",
